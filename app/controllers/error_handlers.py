@@ -1,4 +1,5 @@
 from flask import jsonify
+from marshmallow import ValidationError
 
 from config import Config
 
@@ -20,3 +21,9 @@ def handle_validation_error(e):
 def handle_unauthorized_error(e):
     # TODO implement session cleanup
     return jsonify(e.message), 401
+
+
+error_handlers = {
+    Exception: handle_error,
+    ValidationError: handle_validation_error,
+}

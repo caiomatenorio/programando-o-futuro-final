@@ -1,10 +1,12 @@
 def create_app():
     from flask import Flask
 
-    import app.models
-    from app.controllers import blueprints
-    from app.extensions import db, ma, migrate
     from config import Config
+
+    from . import models
+    from .controllers import blueprints
+    from .controllers.error_handlers import error_handlers
+    from .extensions import db, ma, migrate
 
     app = Flask(__name__)
     app.config.from_object(Config)
@@ -15,5 +17,8 @@ def create_app():
 
     for blueprint in blueprints:
         app.register_blueprint(blueprint)
+
+    for error, handler in error_handlers.items():
+        app.register_error_handler(error, handler)
 
     return app

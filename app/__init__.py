@@ -8,7 +8,9 @@ def create_app():
     from .controllers.error_handlers import error_handlers
     from .extensions import bcrypt, db, ma, migrate
 
-    app = Flask(__name__)
+    app = Flask(__name__,
+                static_folder="/app/static",
+                template_folder="/app/templates")
     app.config.from_object(Config)
 
     bcrypt.init_app(app)

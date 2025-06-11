@@ -1,0 +1,18 @@
+from flask_marshmallow import Marshmallow
+from flask_migrate import Migrate
+from flask_sqlalchemy import SQLAlchemy
+from sqlalchemy.orm import DeclarativeBase
+
+
+# SQLALchemy
+class Base(DeclarativeBase):
+    pass
+
+
+db = SQLAlchemy(model_class=Base)
+
+# Marshmallow
+ma = Marshmallow()
+
+# Flask-Migrate
+migrate = Migrate()

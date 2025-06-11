@@ -22,7 +22,7 @@ class RegisterRequest(Schema):
         },
     )
 
-    password = fields.Str(
+    password = fields.String(
         required=True,
         validate=[
             validate.Length(min=8, max=128),
@@ -47,5 +47,20 @@ class RegisterRequest(Schema):
                 error="Senha deve conter apenas letras, números e caracteres especiais (@, $, !, %, *, ?, &).",
             ),
         ],
+        error_messages={"required": "Senha é obrigatória."},
+    )
+
+
+class LoginRequest(Schema):
+    email = fields.Email(
+        required=True,
+        error_messages={
+            "required": "Email é obrigatório.",
+            "invalid": "Email inválido.",
+        },
+    )
+
+    password = fields.String(
+        required=True,
         error_messages={"required": "Senha é obrigatória."},
     )

@@ -6,11 +6,12 @@ def create_app():
     from . import models
     from .controllers import blueprints
     from .controllers.error_handlers import error_handlers
-    from .extensions import db, ma, migrate
+    from .extensions import bcrypt, db, ma, migrate
 
     app = Flask(__name__)
     app.config.from_object(Config)
 
+    bcrypt.init_app(app)
     db.init_app(app)
     ma.init_app(app)
     migrate.init_app(app, db)

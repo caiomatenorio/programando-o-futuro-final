@@ -2,6 +2,7 @@ def create_app():
     from flask import Flask
 
     import app.models
+    from app.controllers import blueprints
     from app.extensions import db, ma, migrate
     from config import Config
 
@@ -11,5 +12,8 @@ def create_app():
     db.init_app(app)
     ma.init_app(app)
     migrate.init_app(app, db)
+
+    for blueprint in blueprints:
+        app.register_blueprint(blueprint)
 
     return app

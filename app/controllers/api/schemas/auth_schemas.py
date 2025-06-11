@@ -11,6 +11,7 @@ class RegisterRequest(Schema):
                 error="Nome não pode estar vazio ou conter apenas espaços em branco.",
             ),
         ],
+        error_messages={"required": "Nome é obrigatório."},
     )
 
     email = fields.Email(
@@ -46,4 +47,5 @@ class RegisterRequest(Schema):
                 error="Senha deve conter apenas letras, números e caracteres especiais (@, $, !, %, *, ?, &).",
             ),
         ],
+        error_messages={"required": "Senha é obrigatória."},
     )

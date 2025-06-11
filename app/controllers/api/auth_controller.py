@@ -11,7 +11,7 @@ bp = Blueprint("api_auth", __name__, url_prefix="/api/auth")
 def register():
     body = RegisterRequest().load(request.json)  # type: ignore
     auth_service.register(body["name"], body["email"], body["password"])  # type: ignore
-    return jsonify({}), 201
+    return jsonify({"message": "Usuário criado com sucesso."}), 201
 
 
 # @bp.post("/login")

@@ -60,7 +60,7 @@ class Session(db.Model):
         return secrets.token_urlsafe(32)
 
     def is_expired(self) -> bool:
-        return datetime.now(timezone.utc) > self.expires_at
+        return datetime.now(timezone.utc) > self.expires_at.replace(tzinfo=timezone.utc)
 
     def __repr__(self) -> str:
         return f"<Session {self.id}>"

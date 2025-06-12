@@ -5,8 +5,8 @@ import jwt
 from flask import g, request
 
 from app.common_exceptions import SessionNotFoundException
-from app.controllers.http_exceptions import UnauthorizedException
 from app.extensions import db
+from app.http_exceptions import UnauthorizedException
 from app.models.session import Session
 from config import Config
 
@@ -15,6 +15,25 @@ def create_session(user_id):
     with db.session.begin_nested():
         session = Session(user_id=user_id)  # type: ignore
         db.session.add(session)
+    return session
+
+
+def get_session_by_id(session_id, inside_transaction=False):
+    with db.session.begin_nested() if inside_transaction else db.session.begin():
+        session = Session.query.filter_by(id=session_id).with_for_update().first()
+
+        if session:
+            if not session.is_expired():
+                return session
+            delete_session(session)
+
+
+def get_session_by_id_or_raise(session_id, inside_transaction=False):
+    session = get_session_by_id(session_id, inside_transaction)
+
+    if not session:
+        raise SessionNotFoundException()
+
     return session
 
 
@@ -44,6 +63,12 @@ def get_session_by_refresh_token_or_raise(refresh_token, inside_transaction=Fals
 def delete_session(session):
     with db.session.begin_nested():
         db.session.delete(session)
+
+
+def delete_session_by_id(session_id):
+    with db.session.begin():
+        session = get_session_by_id_or_raise(session_id, True)
+        delete_session(session)
 
 
 def create_jwt(session_id, user_id, name, email):
@@ -172,3 +197,11 @@ def refresh_session(refresh_token):
         )
 
         return jwt, session.refresh_token
+
+
+def get_current_session_id():
+    session_id = g.get("session_id")
+
+    if not session_id:
+        raise UnauthorizedException()
+    return session_id

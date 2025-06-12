@@ -1,7 +1,8 @@
 from flask import Blueprint, jsonify, make_response, request
 
+from app.middlewares.requires_auth import requires_auth
 from app.services import auth_service
-from app.services.session_service import add_session_cookies
+from app.services.session_service import add_session_cookies, clear_session_cookies
 
 from .schemas.auth_schemas import LoginRequest, RegisterRequest
 
@@ -27,12 +28,16 @@ def login():
     )
 
 
-# @bp.post("/logout")
-# def logout(): ...
-
-
-# @bp.get("/me")
-# def me(): ...
+@bp.post("/logout")
+@requires_auth
+def logout():
+    auth_service.logout()
+    return clear_session_cookies(
+        make_response(
+            jsonify({"message": "Logout realizado com sucesso."}),
+            200,
+        )
+    )
 
 
 @bp.get("/status")

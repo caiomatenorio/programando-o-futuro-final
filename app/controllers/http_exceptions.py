@@ -9,3 +9,18 @@ class HttpException(Exception):
 class EmailAlreadyInUseException(HttpException):
     def __init__(self, message: str = "Email já está em uso."):
         super().__init__(status_code=409, message=message)
+
+
+class UserNotFoundException(HttpException):
+    def __init__(self, message: str = "Usuário não encontrado."):
+        super().__init__(status_code=404, message=message)
+
+
+class InvalidCredentialsException(HttpException):
+    def __init__(self, message: str = "Credenciais inválidas."):
+        super().__init__(status_code=401, message=message)
+
+
+class UnauthorizedException(HttpException):
+    def __init__(self, message: str = "Não autorizado."):
+        super().__init__(status_code=401, message=message)

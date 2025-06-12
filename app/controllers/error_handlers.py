@@ -1,9 +1,10 @@
-from flask import jsonify
+from flask import jsonify, make_response
 from marshmallow import ValidationError
 
+from app.services.session_service import clear_session_cookies
 from config import Config
 
-from .http_exceptions import HttpException
+from .http_exceptions import HttpException, UnauthorizedException
 
 
 def handle_error(e):
@@ -21,13 +22,12 @@ def handle_validation_exception(e):
 
 
 def handle_unauthorized_exception(e):
-    # TODO implement session cleanup
-    return jsonify(e.message), 401
+    return clear_session_cookies(make_response(jsonify({"message": e.message}), 401))
 
 
 error_handlers = {
     Exception: handle_error,
-    RuntimeError: handle_error,
-    ValidationError: handle_validation_exception,
     HttpException: handle_http_exception,
+    ValidationError: handle_validation_exception,
+    UnauthorizedException: handle_unauthorized_exception,
 }

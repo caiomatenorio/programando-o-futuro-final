@@ -48,7 +48,7 @@ function checkForMatch() {
         matchedCards += 2
 
         if (matchedCards === totalCards) {
-            setTimeout(() => alert("Você Ganhou!", 500))
+            setTimeout(() => alert("Você Ganhou!"), 500)
         }
     } else {
         setTimeout(() => {

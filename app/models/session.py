@@ -59,5 +59,8 @@ class Session(db.Model):
     def generate_refresh_token() -> str:
         return secrets.token_urlsafe(32)
 
+    def is_expired(self) -> bool:
+        return datetime.now(timezone.utc) > self.expires_at
+
     def __repr__(self) -> str:
         return f"<Session {self.id}>"

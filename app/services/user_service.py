@@ -33,6 +33,24 @@ def create_user(name, email, password):
         db.session.add(user)
 
 
+def get_user_by_id(user_id, for_update=False):
+    query = User.query.filter_by(id=user_id)
+
+    if for_update:
+        query = query.with_for_update()
+
+    return query.first()
+
+
+def get_user_by_id_or_raise(user_id, for_update=False):
+    user = get_user_by_id(user_id, for_update)
+
+    if not user:
+        raise UserNotFoundException()
+
+    return user
+
+
 def get_user_by_email(email, for_update=False):
     query = User.query.filter_by(email=email)
 

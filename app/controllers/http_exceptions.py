@@ -19,3 +19,8 @@ class UserNotFoundException(HttpException):
 class InvalidCredentialsException(HttpException):
     def __init__(self, message: str = "Credenciais inválidas."):
         super().__init__(status_code=401, message=message)
+
+
+class UnauthorizedException(HttpException):
+    def __init__(self, message: str = "Não autorizado."):
+        super().__init__(status_code=401, message=message)

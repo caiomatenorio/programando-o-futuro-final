@@ -33,3 +33,9 @@ def login():
 
 # @bp.get("/me")
 # def me(): ...
+
+
+@bp.get("/status")
+def get_auth_status():
+    status = auth_service.get_auth_status()
+    return jsonify(status), 200

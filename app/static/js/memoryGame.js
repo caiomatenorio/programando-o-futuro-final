@@ -13,7 +13,7 @@ function createCards() {
         cardValues.push(i, i)
     }
 
-    cardValues.sort(() => Math.random - 0.5)
+    cardValues.sort(() => Math.random() - 0.5)
 
     cardValues.forEach(value => {
         const card = document.createElement('div')

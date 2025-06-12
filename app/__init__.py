@@ -9,8 +9,8 @@ def create_app():
     from .extensions import bcrypt, db, ma, migrate
 
     app = Flask(__name__,
-                static_folder="/app/static",
-                template_folder="/app/templates")
+                static_folder="static",
+                template_folder="templates")
     app.config.from_object(Config)
 
     bcrypt.init_app(app)

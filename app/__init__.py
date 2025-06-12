@@ -5,7 +5,7 @@ def create_app():
 
     from . import models
     from .controllers import blueprints
-    from .controllers.error_handlers import error_handlers
+    from .error_handlers import error_handlers
     from .extensions import bcrypt, db, ma, migrate
 
     app = Flask(__name__, static_folder="/static", static_url_path="/templates")

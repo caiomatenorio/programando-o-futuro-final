@@ -1,9 +1,12 @@
-from app.controllers.http_exceptions import (
+from flask import g
+
+from app.extensions import bcrypt, db
+from app.http_exceptions import (
     EmailAlreadyInUseException,
     InvalidCredentialsException,
+    UnauthorizedException,
     UserNotFoundException,
 )
-from app.extensions import bcrypt, db
 from app.models.user import User
 
 
@@ -77,3 +80,15 @@ def validate_credentials(email, password, for_update=False):
     except UserNotFoundException:
         pass
     raise InvalidCredentialsException()
+
+
+def get_current_user():
+    user = {
+        "id": g.get("user_id"),
+        "name": g.get("name"),
+        "email": g.get("email"),
+    }
+
+    if not all(user.values()):
+        raise UnauthorizedException()
+    return user

@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Criar Conta - EducaKids</title>
+  <link rel="stylesheet" href="/static/css/register.css">
+</head>
+
+<body>
+  <main>
+    <form action="" id="register-form">
+      <h1>Nova Conta</h1>
+      <div id="inputs">
+        <input type="text" name="name" id="name" placeholder="Nome">
+        <input type="email" name="email" id="email" placeholder="E-mail">
+        <input type="password" name="password" id="password" placeholder="Senha">
+        <input type="password" name="confirm-password" id="confirm-password" placeholder="Confirmar Senha">
+      </div>
+      <button type="submit">Criar</button>
+    </form>
+  </main>
+  <script src="{{ url_for('static', filename='js/register.js') }}"></script>
+</body>
+
+</html>

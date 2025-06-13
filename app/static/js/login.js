@@ -11,25 +11,31 @@ document.getElementById("login-form").addEventListener("submit", async (e) => {
   });
 
   if (response.ok) {
-    window.location.href = "/entrar";
+    window.location.href = "/inicio";
     return;
   }
 
-  // Handle errors
   e.target.reset();
-  const body = await response.json();
 
-  if (response.status === 400) {
-    const errorList = Object.values(body.errors).flat();
+  try {
+    const body = await response.json();
 
-    for (const error of errorList) {
-      alert(error);
+    if (response.status === 400) {
+      const errorList = Object.values(body.errors).flat();
+      for (const error of errorList) {
+        alert(error);
+      }
+      return;
     }
 
-    return;
+    if ([401, 409, 500].includes(response.status)) {
+      alert(body.message);
+      return;
+    }
+
+    throw new Error("Unexpected response status: " + response.status);
+  } catch (error) {
+    console.error("Erro ao processar a resposta:", error);
+    alert("Ocorreu um erro inesperado. Por favor, tente novamente mais tarde.");
   }
-
-  // For 401 Unauthorized, 409 Conflict, 500 Internal Server Error
-
-  alert(body.message);
 });

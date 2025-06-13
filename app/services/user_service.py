@@ -92,3 +92,46 @@ def get_current_user():
     if not all(user.values()):
         raise UnauthorizedException()
     return user
+
+
+def update_current_user_name(name):
+    with db.session.begin():
+        user_id = get_current_user()["id"]
+        user = get_user_by_id_or_raise(user_id, True)
+        user.name = name
+        db.session.add(user)
+
+
+def update_current_user_email(email):
+    with db.session.begin():
+        user_id = get_current_user()["id"]
+        user = get_user_by_id_or_raise(user_id, True)
+
+        if user_exists(email, True):
+            raise EmailAlreadyInUseException()
+
+        user.email = email
+        db.session.add(user)
+
+
+def update_current_user_password(old_password, new_password):
+    with db.session.begin():
+        user_id = get_current_user()["id"]
+        user = get_user_by_id_or_raise(user_id, True)
+
+        if not check_password(old_password, user.password_hash):
+            raise InvalidCredentialsException()
+
+        user.password_hash = hash_password(new_password)
+        db.session.add(user)
+
+
+def delete_current_user(password):
+    with db.session.begin():
+        user_id = get_current_user()["id"]
+        user = get_user_by_id_or_raise(user_id, True)
+
+        if not check_password(password, user.password_hash):
+            raise InvalidCredentialsException()
+
+        db.session.delete(user)

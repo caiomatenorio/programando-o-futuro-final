@@ -114,12 +114,12 @@ def update_current_user_email(email):
         db.session.add(user)
 
 
-def update_current_user_password(old_password, new_password):
+def update_current_user_password(current_password, new_password):
     with db.session.begin():
         user_id = get_current_user()["id"]
         user = get_user_by_id_or_raise(user_id, True)
 
-        if not check_password(old_password, user.password_hash):
+        if not check_password(current_password, user.password_hash):
             raise InvalidCredentialsException()
 
         user.password_hash = hash_password(new_password)

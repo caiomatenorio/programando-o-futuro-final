@@ -23,3 +23,38 @@ class UpdateUserEmailRequest(Schema):
             "invalid": "Email inválido.",
         },
     )
+
+
+class UpdateUserPasswordRequest(Schema):
+    current_password = fields.String(
+        required=True,
+        error_messages={"required": "Senha é obrigatória."},
+    )
+
+    new_password = fields.String(
+        required=True,
+        validate=[
+            validate.Length(min=8, max=128),
+            validate.Regexp(
+                r"^(?=.*[A-Z]).*$",
+                error="Senha deve conter pelo menos uma letra maiúscula.",
+            ),
+            validate.Regexp(
+                r"^(?=.*[a-z]).*$",
+                error="Senha deve conter pelo menos uma letra minúscula.",
+            ),
+            validate.Regexp(
+                r"^(?=.*\d).*$",
+                error="Senha deve conter pelo menos um dígito.",
+            ),
+            validate.Regexp(
+                r"^(?=.*[@$!%*?&]).*$",
+                error="Senha deve conter pelo menos um caractere especial (@, $, !, %, *, ?, &).",
+            ),
+            validate.Regexp(
+                r"^[A-Za-z\d@$!%*?&]{8,128}$",
+                error="Senha deve conter apenas letras, números e caracteres especiais (@, $, !, %, *, ?, &).",
+            ),
+        ],
+        error_messages={"required": "Senha é obrigatória."},
+    )

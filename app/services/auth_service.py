@@ -29,13 +29,7 @@ def get_auth_status():
 
     try:
         session_service.validate_session()
-        response["data"] = {
-            "authenticated": True,
-            "user": {
-                "name": session_service.g.name,
-                "email": session_service.g.email,
-            },
-        }
+        response["data"] = {"authenticated": True}
         return response
     except UnauthorizedException:
         response["data"] = {"authenticated": False}

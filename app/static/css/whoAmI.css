@@ -73,3 +73,70 @@ header {
   cursor: pointer;
   transform: scale(1.1);
 }
+
+#messagesContainer {
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  display: none;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 1000;
+}
+
+.message {
+  background-color: #fff1e6;
+  padding: 2rem;
+  border-radius: 10px;
+  text-align: center;
+  width: 80%;
+  height: 40%;
+  max-width: 600px;
+
+  display: none;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.message h1 {
+  font-size: 2.4rem;
+}
+
+.message p {
+  font-size: 1.8rem;
+  margin: 1rem 0;
+}
+
+#containerBtns {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  margin-top: 20px;
+  width: 100%;
+  height: 20%;
+}
+
+#containerBtns button {
+  padding: 10px 20px;
+  border: none;
+  border-radius: 50px;
+  background-color: #c886ff;
+  color: #fff1e6;
+  cursor: pointer;
+
+  height: 100%;
+  width: 30%;
+  font-size: 16px;
+  font-weight: bold;
+}
+
+a {
+  text-decoration: none;
+  color: #fff1e6;
+  font-weight: bold;
+}

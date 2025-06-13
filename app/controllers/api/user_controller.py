@@ -1,7 +1,8 @@
-from flask import jsonify, request
+from flask import jsonify, make_response, request
 
 from app.controllers.blueprints import api
 from app.services import user_service
+from app.services.session_service import clear_session_cookies
 
 from .schemas.user_schemas import (
     DeleteUserAccountSchema,
@@ -46,4 +47,9 @@ def update_user_password():
 def delete_user_account():
     body = DeleteUserAccountSchema().load(request.json)  # type: ignore
     user_service.delete_current_user_account(body["password"])  # type: ignore
-    return jsonify({"message": "Conta de usuário deletada com sucesso."}), 200
+    return clear_session_cookies(
+        make_response(
+            jsonify({"message": "Conta de usuário deletada com sucesso."}),
+            200,
+        )
+    )

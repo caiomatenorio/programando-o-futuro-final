@@ -11,7 +11,7 @@ document.getElementById("login-form").addEventListener("submit", async (e) => {
   });
 
   if (response.ok) {
-    window.location.href = "/home";
+    window.location.href = "/entrar";
     return;
   }
 

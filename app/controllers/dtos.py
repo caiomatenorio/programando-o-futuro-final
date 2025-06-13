@@ -12,7 +12,7 @@ class ResponseDto:
     message: str
 
     def to_response(self, clear_session=False):
-        body = {k: v for k, v in self.__dict__ if v is not None}
+        body = {k: v for k, v in self.__dict__.items() if v is not None}
         response = make_response(jsonify(body), self.status_code)
         if clear_session:
             return clear_session_cookies(response)

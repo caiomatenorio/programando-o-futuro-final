@@ -1,8 +1,8 @@
-from flask import Blueprint, jsonify, request, render_template
+from flask import render_template
 
-bp = Blueprint("view_whoAmI", __name__, url_prefix="/games/who-am-i")
+from app.controllers.blueprints import api
 
 
-@bp.get("/")
+@api.get("/jogos/quem-sou-eu")
 def index():
     return render_template("whoAmI.html")

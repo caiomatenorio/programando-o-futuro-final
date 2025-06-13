@@ -3,6 +3,6 @@ from flask import render_template
 from app.controllers.blueprints import views
 
 
-@views.get("/home")
+@views.get("/inicio")
 def home():
     return render_template("home.html")

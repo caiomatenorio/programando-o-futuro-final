@@ -2,11 +2,6 @@ const gameBoard = document.getElementById("game-board");
 const imgShadowContainer = document.getElementById("imgShadow");
 const imgOptions = document.getElementById("imgOptions");
 
-const correctContainer = document.getElementById("correct");
-const incorrectContainer = document.getElementById("incorrect");
-const gameWinnerContainer = document.getElementById("gameWin");
-const messagesContainer = document.getElementById("messagesContainer");
-
 const images = [
   "/static/images/whoAmI/ball.png",
   "/static/images/whoAmI/book.png",
@@ -56,26 +51,10 @@ function createImageOptions() {
     img.addEventListener("click", () => {
       const shadowImage = imgShadowContainer.querySelector("img");
       if (shadowImage && shadowImage.src === img.src) {
-        if (currentPhase === totalPhases) {
-          gameWinnerContainer.style.display = "flex";
-          messagesContainer.style.display = "flex";
-        } else {
-          correctContainer.style.display = "flex";
-          messagesContainer.style.display = "flex";
-          setTimeout(() => {
-            correctContainer.style.display = "none";
-            messagesContainer.style.display = "none";
-          }, 1500);
-          nextPhase();
-        }
+        alert("Correct!");
+        nextPhase();
       } else {
-        incorrectContainer.style.display = "flex";
-        messagesContainer.style.display = "flex";
-
-        setTimeout(() => {
-          incorrectContainer.style.display = "none";
-          messagesContainer.style.display = "none";
-        }, 1500);
+        alert("Try again!");
       }
     });
     imgOptions.appendChild(img);
@@ -88,20 +67,11 @@ function nextPhase() {
     createImageShadow();
     createImageOptions();
   } else {
-    gameWinnerContainer.style.display = "flex";
-    messagesContainer.style.display = "flex";
+    alert("Parabéns! Você completou todas as fases!");
+    // Aqui você pode reiniciar ou mostrar um botão de reinício, se quiser
   }
 }
 
-function resetGame() {
-  currentPhase = 1;
-  gameWinnerContainer.style.display = "none";
-  messagesContainer.style.display = "none";
-  correctContainer.style.display = "none";
-  incorrectContainer.style.display = "none";
-
-  createImageShadow();
-  createImageOptions();
-}
+// Inicializa o jogo
 createImageShadow();
 createImageOptions();

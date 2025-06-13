@@ -2,6 +2,7 @@ from flask import redirect, request, url_for
 
 from app.exceptions import UnauthorizedException
 from app.services import session_service
+from app.services.session_service import add_session_cookies
 
 from .blueprints import api, views
 
@@ -9,7 +10,7 @@ from .blueprints import api, views
 
 
 @api.before_request
-def api_middleware():
+def api_before_request():
     PUBLIC_ENDPOINTS = ["api.login", "api.register", "api.auth_status"]
 
     if request.endpoint in PUBLIC_ENDPOINTS:
@@ -22,7 +23,7 @@ def api_middleware():
 
 
 @views.before_request
-def views_middleware():
+def views_before_request():
     PUBLIC_ENDPOINTS = ["views.index", "views.login", "views.register"]
 
     if request.endpoint in PUBLIC_ENDPOINTS:
@@ -36,3 +37,8 @@ def views_middleware():
         session_service.validate_session()
     except UnauthorizedException:
         return redirect(url_for("views.login"))
+
+
+@views.after_request
+def views_after_request(response):
+    return add_session_cookies(response)

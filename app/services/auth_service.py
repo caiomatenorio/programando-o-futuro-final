@@ -24,13 +24,9 @@ def logout():
         raise UnauthorizedException()
 
 
-def get_auth_status():
-    response: dict = {"message": "Status de autenticação obtido com sucesso."}
-
+def is_authenticated():
     try:
         session_service.validate_session()
-        response["data"] = {"authenticated": True}
-        return response
+        return True
     except UnauthorizedException:
-        response["data"] = {"authenticated": False}
-        return response
+        return False

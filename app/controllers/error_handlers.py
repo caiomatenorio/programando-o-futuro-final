@@ -1,11 +1,10 @@
-from flask import jsonify, make_response
 from marshmallow import ValidationError
 
 from app.exceptions import HttpException, UnauthorizedException
-from app.services.session_service import clear_session_cookies
 from config import Config
 
 from .blueprints import api, views
+from .dtos import ErrorResponseDto
 
 # API error handlers for the application
 
@@ -13,23 +12,26 @@ from .blueprints import api, views
 @api.errorhandler(Exception)
 def api_handle_exception(e):
     if Config.FLASK_ENV == "production":
-        return jsonify({"message": "Internal Server Error"}), 500
-    return jsonify({"message": str(e)}), 500
+        return ErrorResponseDto(
+            500,
+            "Ocorreu um erro interno no servidor.",
+        ).to_response()
+    return ErrorResponseDto(500, str(e)).to_response()
 
 
 @api.errorhandler(HttpException)
 def api_handle_http_exception(e):
-    return jsonify({"message": e.message}), e.status_code
+    return ErrorResponseDto(e.status_code, e.message).to_response()
 
 
 @api.errorhandler(ValidationError)
 def api_handle_validation_error(e):
-    return jsonify({"message": "Erro de validação", "errors": e.messages}), 400
+    return ErrorResponseDto(400, "Erro de validação.", e.messages).to_response()
 
 
 @api.errorhandler(UnauthorizedException)
 def api_handle_unauthorized_exception(e):
-    return clear_session_cookies(make_response(jsonify({"message": e.message}), 401))
+    return ErrorResponseDto(401, e.message).to_response(clear_session=True)
 
 
 # Views error handlers for the application

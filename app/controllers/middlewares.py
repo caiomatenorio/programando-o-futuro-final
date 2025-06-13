@@ -29,7 +29,7 @@ def views_before_request():
     if request.endpoint in PUBLIC_ENDPOINTS:
         try:
             session_service.validate_session()
-            redirect(url_for("views.home"))
+            return redirect(url_for("views.home"))
         except UnauthorizedException:
             return
 

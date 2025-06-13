@@ -4,9 +4,8 @@ from uuid import UUID
 import jwt
 from flask import g, request
 
-from app.common_exceptions import SessionNotFoundException
+from app.exceptions import SessionNotFoundException, UnauthorizedException
 from app.extensions import db
-from app.http_exceptions import UnauthorizedException
 from app.models.session import Session
 from config import Config
 

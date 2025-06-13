@@ -4,8 +4,7 @@ def create_app():
     from config import Config
 
     from . import models
-    from .controllers import blueprints
-    from .error_handlers import error_handlers
+    from .controllers.blueprints import api, views
     from .extensions import bcrypt, db, ma, migrate
 
     app = Flask(__name__, static_folder="static", template_folder="templates")
@@ -16,10 +15,8 @@ def create_app():
     ma.init_app(app)
     migrate.init_app(app, db)
 
-    for blueprint in blueprints:
-        app.register_blueprint(blueprint)
-
-    for error, handler in error_handlers.items():
-        app.register_error_handler(error, handler)
+    app.register_blueprint(api)
+    app.register_blueprint(views)
+    app.url_map.strict_slashes = False
 
     return app

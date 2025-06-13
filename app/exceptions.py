@@ -1,3 +1,15 @@
+# Common exceptions for the application
+
+
+class SessionNotFoundException(Exception):
+    def __init__(self, message: str = "Sessão não encontrada."):
+        self.message = message
+        super().__init__(self.message)
+
+
+# HTTP exceptions for the application
+
+
 class HttpException(Exception):
     def __init__(self, status_code: int, message: str):
         self.status_code = status_code

@@ -54,6 +54,12 @@ header {
   color: white;
 }
 
+.card img {
+  width: 90%;
+  height: 90%;
+  border-radius: 8px;
+}
+
 #shadowWinGame {
   display: none;
   position: fixed;

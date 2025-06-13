@@ -5,13 +5,21 @@ let flippedCards = [];
 let matchedCards = 0;
 let isChecking = false;
 
+const images = [
+  "/static/images/memoryGame/happy.png",
+  "/static/images/memoryGame/sad.png",
+  "/static/images/memoryGame/angry.png",
+  "/static/images/memoryGame/fear.png",
+  "/static/images/memoryGame/disgust.png",
+];
+
 const containerWinGame = document.getElementById("shadowWinGame");
 
 function createCards() {
   const cardValues = [];
 
   for (let i = 1; i <= totalCards / 2; i++) {
-    cardValues.push(i, i);
+    cardValues.push(images[i - 1], images[i - 1]);
   }
 
   cardValues.sort(() => Math.random() - 0.5);
@@ -20,6 +28,13 @@ function createCards() {
     const card = document.createElement("div");
     card.classList.add("card");
     card.dataset.value = value;
+
+    const img = document.createElement("img");
+    img.src = value;
+    img.style.display = "none";
+    img.classList.add("card-image");
+    card.appendChild(img);
+
     gameBoard.appendChild(card);
     cards.push(card);
   });
@@ -29,13 +44,13 @@ function createCards() {
 
 function revealCardsTemporarily() {
   cards.forEach((card) => {
-    card.textContent = card.dataset.value;
+    card.querySelector("img").style.display = "block";
     card.classList.add("flipped");
   });
 
   setTimeout(() => {
     cards.forEach((card) => {
-      card.textContent = "";
+      card.querySelector("img").style.display = "none";
       card.classList.remove("flipped");
     });
 
@@ -52,7 +67,7 @@ function enableGame() {
 function handleCardClick(event) {
   if (isChecking) return; // Bloqueia cliques enquanto as cartas estão sendo verificadas
 
-  const clickedCard = event.target;
+  const clickedCard = event.currentTarget;
 
   if (
     flippedCards.length < 2 &&
@@ -61,11 +76,12 @@ function handleCardClick(event) {
   ) {
     flippedCards.push(clickedCard);
     clickedCard.classList.add("flipped");
-    clickedCard.textContent = clickedCard.dataset.value;
+
+    clickedCard.querySelector("img").style.display = "block";
 
     if (flippedCards.length === 2) {
       isChecking = true; // Bloqueia interações enquanto verifica as cartas
-      setTimeout(() => checkForMatch(), 1000); // Adiciona um delay para mostrar as cartas antes de verificar
+      setTimeout(() => checkForMatch(), 1000);
     }
   }
 }
@@ -85,8 +101,8 @@ function checkForMatch() {
     setTimeout(() => {
       card1.classList.remove("flipped");
       card2.classList.remove("flipped");
-      card1.textContent = "";
-      card2.textContent = "";
+      card1.querySelector("img").style.display = "none";
+      card2.querySelector("img").style.display = "none";
     }, 1000);
   }
 

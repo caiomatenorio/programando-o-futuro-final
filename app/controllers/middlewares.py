@@ -26,7 +26,11 @@ def api_middleware():
 #     PUBLIC_ENDPOINTS = ["views.index", "views.login", "views.register"]
 
 #     if request.endpoint in PUBLIC_ENDPOINTS:
-#         return
+#         try:
+#             session_service.validate_session()
+#             redirect(url_for("views.home"))
+#         except UnauthorizedException:
+#             return
 
 #     try:
 #         session_service.validate_session()

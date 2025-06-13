@@ -3,7 +3,7 @@ from flask import jsonify
 from app.controllers.blueprints import api
 from app.services import user_service
 
-from .schemas.user_schemas import UpdateUserNameRequest
+from .schemas.user_schemas import UpdateUserEmailRequest, UpdateUserNameRequest
 
 
 @api.get("/users/me")
@@ -19,7 +19,10 @@ def update_user_name():
     return jsonify({"message": "Nome do usuário atualizado com sucesso."}), 200
 
 
-def update_user_email(): ...
+def update_user_email():
+    body = UpdateUserEmailRequest().load(request.json)  # type: ignore
+    user_service.update_current_user_email(body["email"])  # type: ignore
+    return jsonify({"message": "Email do usuário atualizado com sucesso."}), 200
 
 
 def update_user_password(): ...

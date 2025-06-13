@@ -13,3 +13,13 @@ class UpdateUserNameRequest(Schema):
         ],
         error_messages={"required": "Nome é obrigatório."},
     )
+
+
+class UpdateUserEmailRequest(Schema):
+    email = fields.Email(
+        required=True,
+        error_messages={
+            "required": "Email é obrigatório.",
+            "invalid": "Email inválido.",
+        },
+    )

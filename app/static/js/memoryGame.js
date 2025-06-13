@@ -55,7 +55,7 @@ function revealCardsTemporarily() {
     });
 
     enableGame();
-  }, 10000);
+  }, 6000);
 }
 
 function enableGame() {

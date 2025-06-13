@@ -20,19 +20,19 @@ def api_middleware():
 
 # Views middlewares for the application
 
-# FIXME - Uncomment the following code when the login and register views are implemented
-# @views.before_request
-# def views_middleware():
-#     PUBLIC_ENDPOINTS = ["views.index", "views.login", "views.register"]
 
-#     if request.endpoint in PUBLIC_ENDPOINTS:
-#         try:
-#             session_service.validate_session()
-#             redirect(url_for("views.home"))
-#         except UnauthorizedException:
-#             return
+@views.before_request
+def views_middleware():
+    PUBLIC_ENDPOINTS = ["views.index", "views.login", "views.register"]
 
-#     try:
-#         session_service.validate_session()
-#     except UnauthorizedException:
-#         return redirect(url_for("views.login"))
+    if request.endpoint in PUBLIC_ENDPOINTS:
+        try:
+            session_service.validate_session()
+            redirect(url_for("views.home"))
+        except UnauthorizedException:
+            return
+
+    try:
+        session_service.validate_session()
+    except UnauthorizedException:
+        return redirect(url_for("views.login"))

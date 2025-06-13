@@ -1,8 +1,8 @@
-from flask import jsonify, make_response, request
+from flask import request
 
 from app.controllers.blueprints import api
+from app.controllers.dtos import SuccessResponseDto
 from app.services import auth_service
-from app.services.session_service import add_session_cookies, clear_session_cookies
 
 from .schemas.auth_schemas import LoginSchema, RegisterSchema
 
@@ -11,33 +11,30 @@ from .schemas.auth_schemas import LoginSchema, RegisterSchema
 def register():
     body = RegisterSchema().load(request.json)  # type: ignore
     auth_service.register(body["name"], body["email"], body["password"])  # type: ignore
-    return jsonify({"message": "Usuário criado com sucesso."}), 201
+    return SuccessResponseDto(201, "Usuário criado com sucesso.").to_response()
 
 
 @api.post("/auth/login")
 def login():
     body = LoginSchema().load(request.json)  # type: ignore
     auth_service.login(body["email"], body["password"])  # type: ignore
-    return add_session_cookies(
-        make_response(
-            jsonify({"message": "Login realizado com sucesso."}),
-            200,
-        )
-    )
+    return SuccessResponseDto(200, "Login realizado com sucesso.").to_response()
 
 
 @api.post("/auth/logout")
 def logout():
     auth_service.logout()
-    return clear_session_cookies(
-        make_response(
-            jsonify({"message": "Logout realizado com sucesso."}),
-            200,
-        )
-    )
+    return SuccessResponseDto(
+        200,
+        "Logout realizado com sucesso.",
+    ).to_response(clear_session=True)
 
 
 @api.get("/auth/status")
-def auth_status():
-    status = auth_service.get_auth_status()
-    return jsonify(status), 200
+def get_auth_status():
+    authenticated = auth_service.is_authenticated()
+    return SuccessResponseDto(
+        200,
+        "Status de autenticação verificado com sucesso.",
+        {"authenticated": authenticated},
+    ).to_response()

@@ -107,20 +107,21 @@ def get_new_tokens():
 
 
 def add_session_cookies(response):
-    for index, token in enumerate(get_new_tokens()):
-        response.set_cookie(
-            "access_token" if index == 0 else "refresh_token",
-            token,
-            max_age=(
-                Config.JWT_EXPIRATION_SECS
-                if index == 0
-                else Config.SESSION_EXPIRATION_SECS
-            ),
-            httponly=True,
-            secure=Config.FLASK_ENV == "production",
-            samesite="Strict" if Config.FLASK_ENV == "production" else "Lax",
-            path="/",
-        )
+    if all(new_tokens := get_new_tokens()):
+        for index, token in enumerate(new_tokens):
+            response.set_cookie(
+                "access_token" if index == 0 else "refresh_token",
+                token,
+                max_age=(
+                    Config.JWT_EXPIRATION_SECS
+                    if index == 0
+                    else Config.SESSION_EXPIRATION_SECS
+                ),
+                httponly=True,
+                secure=Config.FLASK_ENV == "production",
+                samesite="Strict" if Config.FLASK_ENV == "production" else "Lax",
+                path="/",
+            )
 
     return response
 

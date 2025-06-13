@@ -4,5 +4,5 @@ from app.controllers.blueprints import api
 
 
 @api.get("/jogos/quem-sou-eu")
-def index():
+def who_am_i_game():
     return render_template("whoAmI.html")

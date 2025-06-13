@@ -1,8 +1,5 @@
-from flask import g
-
-from app.common_exceptions import SessionNotFoundException
+from app.exceptions import SessionNotFoundException, UnauthorizedException
 from app.extensions import db
-from app.http_exceptions import UnauthorizedException
 
 from . import session_service, user_service
 
@@ -32,13 +29,7 @@ def get_auth_status():
 
     try:
         session_service.validate_session()
-        response["data"] = {
-            "authenticated": True,
-            "user": {
-                "name": session_service.g.name,
-                "email": session_service.g.email,
-            },
-        }
+        response["data"] = {"authenticated": True}
         return response
     except UnauthorizedException:
         response["data"] = {"authenticated": False}

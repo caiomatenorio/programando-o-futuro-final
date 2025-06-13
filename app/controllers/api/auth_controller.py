@@ -26,7 +26,6 @@ def login():
     )
 
 
-# TODO: implement auth middleware to protect this endpoint
 @api.post("/auth/logout")
 def logout():
     auth_service.logout()

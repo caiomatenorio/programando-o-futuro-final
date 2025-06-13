@@ -1,8 +1,5 @@
-from flask import g
-
-from app.common_exceptions import SessionNotFoundException
+from app.exceptions import SessionNotFoundException, UnauthorizedException
 from app.extensions import db
-from app.http_exceptions import UnauthorizedException
 
 from . import session_service, user_service
 

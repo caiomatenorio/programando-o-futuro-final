@@ -1,12 +1,12 @@
 from flask import g
 
-from app.extensions import bcrypt, db
-from app.http_exceptions import (
+from app.exceptions import (
     EmailAlreadyInUseException,
     InvalidCredentialsException,
     UnauthorizedException,
     UserNotFoundException,
 )
+from app.extensions import bcrypt, db
 from app.models.user import User
 
 

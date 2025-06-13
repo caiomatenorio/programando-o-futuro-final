@@ -1,7 +1,7 @@
 from marshmallow import Schema, fields, validate
 
 
-class RegisterRequest(Schema):
+class RegisterSchema(Schema):
     name = fields.String(
         required=True,
         validate=[
@@ -51,7 +51,7 @@ class RegisterRequest(Schema):
     )
 
 
-class LoginRequest(Schema):
+class LoginSchema(Schema):
     email = fields.Email(
         required=True,
         error_messages={

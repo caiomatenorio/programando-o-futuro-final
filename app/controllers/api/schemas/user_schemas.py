@@ -1,7 +1,7 @@
 from marshmallow import Schema, fields, validate
 
 
-class UpdateUserNameRequest(Schema):
+class UpdateUserNameSchema(Schema):
     name = fields.String(
         required=True,
         validate=[
@@ -15,7 +15,7 @@ class UpdateUserNameRequest(Schema):
     )
 
 
-class UpdateUserEmailRequest(Schema):
+class UpdateUserEmailSchema(Schema):
     email = fields.Email(
         required=True,
         error_messages={
@@ -25,7 +25,7 @@ class UpdateUserEmailRequest(Schema):
     )
 
 
-class UpdateUserPasswordRequest(Schema):
+class UpdateUserPasswordSchema(Schema):
     current_password = fields.String(
         required=True,
         error_messages={"required": "Senha é obrigatória."},
@@ -60,7 +60,7 @@ class UpdateUserPasswordRequest(Schema):
     )
 
 
-class DeleteUserAccountRequest(Schema):
+class DeleteUserAccountSchema(Schema):
     password = fields.String(
         required=True,
         error_messages={"required": "Senha é obrigatória."},

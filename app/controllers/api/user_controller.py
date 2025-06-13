@@ -46,7 +46,7 @@ def update_user_password():
 @api.delete("/users/me")
 def delete_user_account():
     body = DeleteUserAccountSchema().load(request.json)  # type: ignore
-    user_service.delete_current_user_account(body["password"])  # type: ignore
+    user_service.delete_current_user(body["password"])  # type: ignore
     return clear_session_cookies(
         make_response(
             jsonify({"message": "Conta de usuário deletada com sucesso."}),

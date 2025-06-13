@@ -17,13 +17,12 @@ form {
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 3vh;
 }
 
 h1 {
   font-size: 2.5rem;
   color: #c886ff;
-  margin-bottom: 1vh;
+  margin-bottom: 4vh;
 }
 
 #inputs {
@@ -58,4 +57,14 @@ button {
   color: white;
   font-size: 1.25rem;
   cursor: pointer;
+}
+
+a {
+  color: #c886ff;
+  text-decoration: none;
+  font-size: 0.9rem;
+  font-weight: 500;
+  text-decoration: underline;
+  text-align: end;
+  margin-right: 1vw;
 }

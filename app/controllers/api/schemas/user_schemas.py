@@ -1,7 +1,7 @@
 from marshmallow import Schema, fields, validate
 
 
-class RegisterSchema(Schema):
+class UpdateUserNameSchema(Schema):
     name = fields.String(
         required=True,
         validate=[
@@ -14,6 +14,8 @@ class RegisterSchema(Schema):
         error_messages={"required": "Nome é obrigatório."},
     )
 
+
+class UpdateUserEmailSchema(Schema):
     email = fields.Email(
         required=True,
         error_messages={
@@ -22,7 +24,14 @@ class RegisterSchema(Schema):
         },
     )
 
-    password = fields.String(
+
+class UpdateUserPasswordSchema(Schema):
+    current_password = fields.String(
+        required=True,
+        error_messages={"required": "Senha é obrigatória."},
+    )
+
+    new_password = fields.String(
         required=True,
         validate=[
             validate.Length(min=8, max=128),
@@ -51,15 +60,7 @@ class RegisterSchema(Schema):
     )
 
 
-class LoginSchema(Schema):
-    email = fields.Email(
-        required=True,
-        error_messages={
-            "required": "Email é obrigatório.",
-            "invalid": "Email inválido.",
-        },
-    )
-
+class DeleteUserAccountSchema(Schema):
     password = fields.String(
         required=True,
         error_messages={"required": "Senha é obrigatória."},

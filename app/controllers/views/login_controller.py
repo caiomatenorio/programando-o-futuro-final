@@ -1,8 +1,8 @@
 from flask import render_template
 
-from app.controllers.blueprints import api
+from app.controllers.blueprints import views
 
 
-@api.get("/login")
+@views.get("/login")
 def login():
     return render_template("login.html")

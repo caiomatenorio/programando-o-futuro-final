@@ -1,1 +1,1 @@
-from . import index_controller, memory_game_controller
+from . import home_page_controller, memory_game_controller

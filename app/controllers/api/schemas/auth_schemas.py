@@ -25,7 +25,7 @@ class RegisterSchema(Schema):
     password = fields.String(
         required=True,
         validate=[
-            validate.Length(min=8, max=128),
+            validate.Length(min=8, max=128, error="Senha deve ter entre 8 e 128 caracteres."),
             validate.Regexp(
                 r"^(?=.*[A-Z]).*$",
                 error="Senha deve conter pelo menos uma letra maiúscula.",
@@ -62,5 +62,6 @@ class LoginSchema(Schema):
 
     password = fields.String(
         required=True,
+        validate=validate.Length(min=1, error="Senha é obrigatória."),
         error_messages={"required": "Senha é obrigatória."},
     )

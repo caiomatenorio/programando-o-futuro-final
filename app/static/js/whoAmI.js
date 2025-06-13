@@ -8,7 +8,7 @@ const gameWinnerContainer = document.getElementById("gameWin");
 const messagesContainer = document.getElementById("messagesContainer");
 
 const images = [
-  "/static/images/whoAmI/ball.png",
+  "/static/images/whoAmI/car.png",
   "/static/images/whoAmI/book.png",
   "/static/images/whoAmI/dog.png",
   "/static/images/whoAmI/house.png",

@@ -1,8 +1,8 @@
 from flask import render_template
 
-from app.controllers.blueprints import api
+from app.controllers.blueprints import views
 
 
-@api.get("/jogos/quem-sou-eu")
+@views.get("/jogos/quem-sou-eu")
 def index():
     return render_template("whoAmI.html")

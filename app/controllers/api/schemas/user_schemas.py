@@ -58,3 +58,10 @@ class UpdateUserPasswordRequest(Schema):
         ],
         error_messages={"required": "Senha é obrigatória."},
     )
+
+
+class DeleteUserAccountRequest(Schema):
+    password = fields.String(
+        required=True,
+        error_messages={"required": "Senha é obrigatória."},
+    )

@@ -5,7 +5,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Criar Conta - EducaKids</title>
-  <link rel="stylesheet" href="/static/css/register.css">
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/auth.css' ) }}">
 </head>
 
 <body>
@@ -17,6 +17,7 @@
         <input type="email" name="email" id="email" placeholder="E-mail">
         <input type="password" name="password" id="password" placeholder="Senha">
         <input type="password" name="confirm-password" id="confirm-password" placeholder="Confirmar Senha">
+        <a href="{{url_for('views.login')}}">Já tem uma conta?</a>
       </div>
       <button type="submit">Criar</button>
     </form>

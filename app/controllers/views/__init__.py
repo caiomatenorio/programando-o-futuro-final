@@ -1,1 +1,1 @@
-from . import auth_controller, game_controller, home_page_controller
+from . import auth_controller, game_controller, home_controller

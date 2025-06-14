@@ -1,63 +1,75 @@
-@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap");
 
 body {
-    margin: 0;
-    font-family: serif;
-    background-color: #ffefe6;
-    text-align: center;
-    font-family: "Inter";
+  margin: 0;
+  font-family: serif;
+  background-color: #ffefe6;
+  text-align: center;
+  font-family: "Inter";
 }
 
 header {
-    background-color: #cc84f4;
-    color: #FFF1E6;
-    padding: 1em;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
+  background-color: #cc84f4;
+  color: #fff1e6;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 10vh;
+  padding: 0 2em;
 }
 
 .marca {
-    font-size: 24px;
-    margin-left: 1em;
+  font-size: 24px;
+  margin-left: 1em;
 }
 
 .sobre {
-    color:#FFF1E6;
-    text-decoration: none;
-    margin-right: 1em;
-    font-size: 14px;
+  color: #fff1e6;
+  text-decoration: none;
+  margin-right: 1em;
+  font-size: 14px;
 }
 
 main {
-    margin-top: 100px;
+  display: flex;
+  align-items: center;
+  height: 90vh;
+  justify-content: space-evenly;
+  padding: 0 2em;
 }
 
-h1  {
-    text-decoration: none;
-    color:#C886FF;
-    font-size: 24px;
+#text-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 2vh;
 }
 
-.buttons {
-    margin-top: 60px;
+img {
+  width: 37vw;
+  border-radius: 25px;
+}
+
+h1 {
+  text-decoration: none;
+  color: #c886ff;
+  font-size: 24px;
 }
 
 button {
-    background-color: #C886FF;
-    color: #FFF1E6;
-    border: none;
-    border-radius: 10px;
-    padding: 15px 30px; 
-    margin: 10px;
-    font-size: 16px; 
-    cursor: pointer;
-    font-family: "Inter", sans-serif;
-    width: 200px; 
-    height: 60px;  
-    box-sizing: border-box; 
-
+  background-color: #c886ff;
+  color: #fff1e6;
+  border: none;
+  border-radius: 25px;
+  padding: 2vh 2vw;
+  margin: 10px;
+  font-size: 1.25rem;
+  cursor: pointer;
+  font-family: "Inter", sans-serif;
+  box-sizing: border-box;
+}
 
 button:hover {
-    opacity: 0.9;
+  opacity: 0.9;
 }

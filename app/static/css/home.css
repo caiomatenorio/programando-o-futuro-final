@@ -33,6 +33,7 @@ main {
 #search {
   display: flex;
   align-items: center;
+  justify-content: space-between;
   width: 80%;
   height: 7vh;
   border-radius: 25px;
@@ -58,7 +59,6 @@ main {
 }
 #search img {
   width: 2rem;
-  height: 2rem;
 }
 
 #imgContainer {
@@ -78,7 +78,12 @@ main {
   align-items: center;
 }
 
+#imgContainer img {
+  width: 25vw;
+  border-radius: 25px;
+}
+
 main img {
-  width: 80%;
+  width: 30vw;
   border-radius: 25px;
 }

@@ -5,19 +5,19 @@ const imgResult = document.getElementById("imgResult");
 const games = [
   {
     name: "Quem sou eu?",
-    html: `<a href="jogos/quem-sou-eu"><img src="/static/images/home/quemSouEu.png" alt="Who am I"/></a>`,
+    html: `<a href="jogos/quem-sou-eu"><img src="/static/images/home/quem-sou-eu.png" alt="Who am I"/></a>`,
   },
   {
     name: "Memória das Emoções",
-    html: `<a href="jogos/jogo-da-memoria"><img src="/static/images/home/memoriaDasEmocoes.png" alt="Memory game"/></a>`,
+    html: `<a href="jogos/jogo-da-memoria"><img src="/static/images/home/memoria-das-emocoes.png" alt="Memory game"/></a>`,
   },
   {
     name: "Jogo das Cores",
-    html: `<a href="jogos/jogo-das-cores"><img src="/static/images/home/jogoDasCores.png" alt="Color game"/></a>`,
+    html: `<a href="jogos/jogo-das-cores"><img src="/static/images/home/jogo-das-cores.png" alt="Color game"/></a>`,
   },
   {
     name: "Vamos Contar",
-    html: `<a href="jogos/vamos-contar"><img src="/static/images/home/VamosContar.png" alt="Let's count"/></a>`,
+    html: `<a href="jogos/vamos-contar"><img src="/static/images/home/vamos-contar.png" alt="Let's count"/></a>`,
   },
 ];
 

@@ -7,13 +7,9 @@
     <title>EducaKids</title>
   </head>
   <body>
-    <header>
-      <h1>Jogo das Cores</h1>
-      <a href="/inicio">Voltar</a>
-    </header>
-
+    <!-- Inside the platform we assume data-index as home page -->
+    <app-header data-index="{{ url_for('views.home')}}"></app-header>
     <h1 id="title">Vamos brincar com as cores!</h1>
-
     <div class="container">
       <div class="row" id="draggables">
         <div class="circle filled red" draggable="true" data-color="red"></div>
@@ -38,7 +34,6 @@
           data-color="yellow"
         ></div>
       </div>
-
       <div class="row" id="targets">
         <div class="target green" data-color="green"></div>
         <div class="target yellow" data-color="yellow"></div>
@@ -47,7 +42,6 @@
         <div class="target red" data-color="red"></div>
       </div>
     </div>
-
     <div id="messageContainer">
       <div id="gameWin">
         <h1>Você ganhou!</h1>
@@ -59,5 +53,6 @@
       </div>
     </div>
     <script src="{{ url_for('static', filename='js/colorGame.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/app-header.js') }}"></script>
   </body>
 </html>

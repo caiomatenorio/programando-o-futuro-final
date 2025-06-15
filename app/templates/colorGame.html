@@ -1,35 +1,58 @@
 <!DOCTYPE html>
 <html lang="pt-br">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="/static/css/colorGame.css">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="/static/css/colorGame.css" />
     <title>Color Game</title>
-</head>
-<body>
+  </head>
+  <body>
     <h1>Vamos brincar com as cores!</h1>
 
     <div class="container">
-        <!-- Bolas de cima -->
-        <div class="row" id="draggables">
+      <div class="row" id="draggables">
         <div class="circle filled red" draggable="true" data-color="red"></div>
-        <div class="circle filled blue" draggable="true" data-color="blue"></div>
-        <div class="circle filled green" draggable="true" data-color="green"></div>
-        <div class="circle filled purple" draggable="true" data-color="purple"></div>
-        <div class="circle filled yellow" draggable="true" data-color="yellow"></div>
-        </div>
+        <div
+          class="circle filled blue"
+          draggable="true"
+          data-color="blue"
+        ></div>
+        <div
+          class="circle filled green"
+          draggable="true"
+          data-color="green"
+        ></div>
+        <div
+          class="circle filled purple"
+          draggable="true"
+          data-color="purple"
+        ></div>
+        <div
+          class="circle filled yellow"
+          draggable="true"
+          data-color="yellow"
+        ></div>
+      </div>
 
-        <!-- Alvos de baixo -->
-        <div class="row" id="targets">
+      <div class="row" id="targets">
         <div class="target green" data-color="green"></div>
         <div class="target yellow" data-color="yellow"></div>
         <div class="target purple" data-color="purple"></div>
         <div class="target blue" data-color="blue"></div>
         <div class="target red" data-color="red"></div>
-        </div>
+      </div>
     </div>
 
-
+    <div id="messageContainer">
+      <div id="gameWin">
+        <h1>Você ganhou!</h1>
+        <p>Parabéns! Você completou o jogo!</p>
+        <div id="containerBtns">
+          <button id="playAgain">Jogar novamente</button>
+          <button onclick="window.location.href='/inicio'">Voltar</button>
+        </div>
+      </div>
+    </div>
     <script src="{{ url_for('static', filename='js/colorGame.js') }}"></script>
-</body>
+  </body>
 </html>

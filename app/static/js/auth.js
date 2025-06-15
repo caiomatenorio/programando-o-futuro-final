@@ -102,7 +102,12 @@ document
         return;
       }
 
-      if ([409, 500].includes(response.status)) {
+      if (response.status === 409) {
+        addCustomValidity("email", body.message);
+        return;
+      }
+
+      if (response.status === 500) {
         alert(body.message);
         return;
       }
@@ -148,7 +153,12 @@ document.getElementById("login-form")?.addEventListener("submit", async (e) => {
       return;
     }
 
-    if ([401, 409, 500].includes(response.status)) {
+    if (response.status === 401) {
+      addCustomValidity("password", body.message);
+      return;
+    }
+
+    if (response.status === 500) {
       alert(body.message);
       return;
     }

@@ -45,11 +45,11 @@ class RegisterSchema(Schema):
                 error="Senha deve conter pelo menos um dígito.",
             ),
             validate.Regexp(
-                r"^(?=.*[@$!%*?&]).*$",
+                r"^(?=.*[@$!%*?&#^~.,:;+=_\-\(\)\[\]\{\}<>|\\/\"\'\`]).*$",
                 error="Senha deve conter pelo menos um caractere especial (@, $, !, %, *, ?, &).",
             ),
             validate.Regexp(
-                r"^[A-Za-z\d@$!%*?&]$",
+                r"^[A-Za-z\d@$!%*?&#^~.,:;+=_\-\(\)\[\]\{\}<>|\\/\"\'\`]+$",
                 error="Senha deve conter apenas letras, números e caracteres especiais.",
             ),
         ],

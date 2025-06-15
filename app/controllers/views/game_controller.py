@@ -11,3 +11,8 @@ def memory_game():
 @views.get("/jogos/quem-sou-eu")
 def who_am_i_game():
     return render_template("whoAmI.html")
+
+
+@views.get("/jogos/jogo-das-cores")
+def color_game():
+    return render_template("colorGame.html")

@@ -5,7 +5,11 @@ class RegisterSchema(Schema):
     name = fields.String(
         required=True,
         validate=[
-            validate.Length(min=1, max=64),
+            validate.Length(
+                min=1,
+                max=64,
+                error="Nome deve ter entre 1 e 64 caracteres.",
+            ),
             validate.Regexp(
                 r"^(?=.*\S).+$",
                 error="Nome não pode estar vazio ou conter apenas espaços em branco.",
@@ -25,7 +29,9 @@ class RegisterSchema(Schema):
     password = fields.String(
         required=True,
         validate=[
-            validate.Length(min=8, max=128, error="Senha deve ter entre 8 e 128 caracteres."),
+            validate.Length(
+                min=8, max=128, error="Senha deve ter entre 8 e 128 caracteres."
+            ),
             validate.Regexp(
                 r"^(?=.*[A-Z]).*$",
                 error="Senha deve conter pelo menos uma letra maiúscula.",
@@ -43,8 +49,8 @@ class RegisterSchema(Schema):
                 error="Senha deve conter pelo menos um caractere especial (@, $, !, %, *, ?, &).",
             ),
             validate.Regexp(
-                r"^[A-Za-z\d@$!%*?&]{8,128}$",
-                error="Senha deve conter apenas letras, números e caracteres especiais (@, $, !, %, *, ?, &).",
+                r"^[A-Za-z\d@$!%*?&]$",
+                error="Senha deve conter apenas letras, números e caracteres especiais.",
             ),
         ],
         error_messages={"required": "Senha é obrigatória."},

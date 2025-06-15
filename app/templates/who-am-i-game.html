@@ -13,7 +13,7 @@
   </head>
   <body>
     <!-- Inside the platform we assume data-index as home page -->
-    <app-header data-index="{{ url_for('views.home')}}"></app-header>
+    <app-header data-home="{{ url_for('views.home')}}" data-back></app-header>
     <h1 id="description">Quem é que faz essa sombra?</h1>
     <div id="game-board">
       <div id="imgShadow"></div>

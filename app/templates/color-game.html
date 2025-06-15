@@ -12,8 +12,7 @@
     <title>EducaKids</title>
   </head>
   <body>
-    <!-- Inside the platform we assume data-index as home page -->
-    <app-header data-index="{{ url_for('views.home')}}"></app-header>
+    <app-header data-home="{{ url_for('views.home') }}" data-back></app-header>
     <h1 id="title">Vamos levar a bolinha pra casa dela!</h1>
     <div class="container">
       <div class="row" id="draggables">

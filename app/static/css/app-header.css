@@ -8,6 +8,10 @@
   font-family: Arial, Helvetica, sans-serif;
 }
 
+.header img {
+  height: 7vh;
+}
+
 .header ul {
   list-style: none;
   display: flex;

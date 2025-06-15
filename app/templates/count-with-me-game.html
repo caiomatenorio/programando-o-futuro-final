@@ -12,8 +12,7 @@
     />
   </head>
   <body>
-    <!-- Inside the platform we assume data-index as home page -->
-    <app-header data-index="{{ url_for('views.home') }}"></app-header>
+    <app-header data-home="{{ url_for('views.home') }}" data-back></app-header>
     <h1 id="title">
       1, 2, 3... vamos contar e levar a bolinha até o quadrado!
     </h1>

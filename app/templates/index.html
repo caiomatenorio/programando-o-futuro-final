@@ -12,13 +12,13 @@
   </head>
   <body>
     <app-header
-      data-index="{{ url_for('views.index') }}"
+      data-home="{{ url_for('views.index') }}"
       data-login="{{ url_for('views.login') }}"
       data-register="{{ url_for('views.register') }}"
     ></app-header>
     <main>
       <img
-        src="{{ url_for('static', 'images/index/kid.png') }}"
+        src="{{ url_for('static', filename='images/index/kid.png') }}"
         alt="Criança brincando"
       />
       <div id="text-content">

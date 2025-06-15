@@ -4,7 +4,7 @@ document.addEventListener("DOMContentLoaded", () => {
     { numero: 2, bolinhas: 2, gridClass: "grid2" },
     { numero: 3, bolinhas: 3, gridClass: "grid3" },
     { numero: 4, bolinhas: 4, gridClass: "grid4" },
-    { numero: 5, bolinhas: 5, gridClass: "grid5" }
+    { numero: 5, bolinhas: 5, gridClass: "grid5" },
   ];
 
   const container = document.querySelector(".container");
@@ -58,10 +58,10 @@ document.addEventListener("DOMContentLoaded", () => {
         container.appendChild(novaFase);
       }
     } else {
-        document.getElementById("messageContainer").style.display = "flex";
-        document.getElementById("playAgain").addEventListener("click", () => {
-          location.reload();
-        });
+      document.getElementById("messageContainer").style.display = "flex";
+      document.getElementById("playAgain").addEventListener("click", () => {
+        location.reload();
+      });
     }
   }
 

@@ -5,6 +5,9 @@ let flippedCards = [];
 let matchedCards = 0;
 let isChecking = false;
 
+const playAgainButton = document.getElementById("playAgain");
+playAgainButton.addEventListener("click", playAgain);
+
 const images = [
   "/static/images/memoryGame/feliz.png",
   "/static/images/memoryGame/triste.png",

@@ -3,6 +3,11 @@ from flask import render_template
 from app.controllers.blueprints import views
 
 
+@views.get("/jogos/vamos-contar")
+def count_with_me_game():
+    return render_template("countWithMeGame.html")
+
+
 @views.get("/jogos/jogo-da-memoria")
 def memory_game():
     return render_template("memoryGame.html")

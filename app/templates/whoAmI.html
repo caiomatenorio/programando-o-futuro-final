@@ -4,12 +4,17 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="/static/css/whoAmI.css" />
+    <link
+      rel="shortcut icon"
+      href="/static/images/logo/logo-transparent.ico"
+      type="image/x-icon"
+    />
     <title>Quem sou eu?</title>
   </head>
   <body>
     <!-- Inside the platform we assume data-index as home page -->
     <app-header data-index="{{ url_for('views.home')}}"></app-header>
-    <h1 id="description">Encontre a quem pertence a sombra!</h1>
+    <h1 id="description">Quem é que faz essa sombra?</h1>
     <div id="game-board">
       <div id="imgShadow"></div>
       <div id="imgOptionsContainer">

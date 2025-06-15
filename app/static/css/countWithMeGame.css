@@ -1,10 +1,9 @@
 body {
   font-family: Arial, sans-serif;
-  display: flex;
-  flex-direction: column;
-  height: 100vh;
-  margin: 0;
   background-color: #fff1e6;
+  margin: 0;
+  padding: 0;
+  text-align: center;
 }
 
 header {
@@ -25,81 +24,90 @@ header a {
 }
 
 #title {
-  color: #c38df7;
-  margin-bottom: 40px;
-  font-size: 48px;
-  text-align: center;
+  color: #c886ff;
+  font-size: 64px;
+  margin-top: 30px;
 }
 
 .container {
   display: flex;
-  flex-direction: column;
-  gap: 80px;
-  margin-top: 80px;
-}
-
-.row {
-  display: flex;
-  gap: 80px;
   justify-content: center;
-  flex-wrap: wrap;
+  align-items: center;
+  flex-direction: column;
+  min-height: 400px;
+  margin-top: 40px;
 }
 
-.circle {
-  width: 10vw;
-  height: 10vw;
-  border-radius: 50%;
-  cursor: grab;
+.linha {
+  display: flex;
+  align-items: center;
+  gap: 30px;
 }
 
-.filled.red {
-  background-color: red;
-}
-.filled.blue {
-  background-color: blue;
-}
-.filled.green {
-  background-color: lime;
-}
-.filled.purple {
-  background-color: purple;
-}
-.filled.yellow {
-  background-color: orange;
+.caixa-numero,
+.caixa-resposta {
+  background-color: #b8e0ff;
+  width: 25vw;
+  height: 25vw;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 12rem;
+  font-weight: bold;
+  border-radius: 10px;
 }
 
-.target {
-  width: 10.2vw;
-  height: 10.2vw;
-  border-radius: 50%;
-  background-color: white;
-  border: 8px solid;
+.caixa-resposta {
+  display: grid;
+  place-items: center;
+  gap: 10px;
+}
+
+.grid1 {
+  grid-template-columns: 1fr;
+}
+
+.grid2 {
+  grid-template-columns: 1fr 1fr;
+}
+
+.grid3 {
+  grid-template-columns: repeat(2, 1fr);
+  grid-template-rows: repeat(2, 1fr);
+}
+
+.grid4 {
+  grid-template-columns: repeat(2, 1fr);
+  grid-template-rows: repeat(2, 1fr);
+}
+
+.grid5 {
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: repeat(2, 1fr);
+}
+
+.igual {
+  font-weight: bold;
+  font-size: 4vw;
+  margin: auto 30px;
   display: flex;
   align-items: center;
   justify-content: center;
 }
 
-.target.red {
-  border-color: red;
-}
-.target.blue {
-  border-color: blue;
-}
-.target.green {
-  border-color: lime;
-}
-.target.purple {
-  border-color: purple;
-}
-.target.yellow {
-  border-color: orange;
+.circulos {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  max-width: 30vw;
 }
 
-.placed {
-  width: 10.2vw;
-  height: 10.2vw;
-  cursor: default;
+.circulo {
+  width: 7vw;
+  height: 7vw;
+  background-color: red;
   border-radius: 50%;
+  cursor: grab;
 }
 
 #messageContainer {
@@ -129,11 +137,13 @@ header a {
   padding: 20px;
   z-index: 1001;
 }
-#gameWin h1 {
+
+#gameWin h2 {
   color: #c38df7;
-  font-size: 36px;
-  margin-bottom: 20px;
+  font-size: 30px;
+  margin-bottom: 10px;
 }
+
 #gameWin button {
   padding: 10px 20px;
   font-size: 18px;

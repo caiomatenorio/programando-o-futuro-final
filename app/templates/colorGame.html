@@ -4,12 +4,17 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="/static/css/colorGame.css" />
+    <link
+      rel="shortcut icon"
+      href="/static/images/logo/logo-transparent.ico"
+      type="image/x-icon"
+    />
     <title>EducaKids</title>
   </head>
   <body>
     <!-- Inside the platform we assume data-index as home page -->
     <app-header data-index="{{ url_for('views.home')}}"></app-header>
-    <h1 id="title">Vamos brincar com as cores!</h1>
+    <h1 id="title">Vamos levar a bolinha pra casa dela!</h1>
     <div class="container">
       <div class="row" id="draggables">
         <div class="circle filled red" draggable="true" data-color="red"></div>

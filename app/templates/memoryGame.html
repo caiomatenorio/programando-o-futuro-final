@@ -5,12 +5,17 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="/static/css/memoryGame.css" />
+    <link
+      rel="shortcut icon"
+      href="/static/images/logo/logo-transparent.ico"
+      type="image/x-icon"
+    />
     <title>Educakids</title>
   </head>
   <body>
     <!-- Inside the platform we assume data-index as home page -->
     <app-header data-index="{{ url_for('views.home')}}"></app-header>
-    <h1 id="description">Encontre as emoções iguais!</h1>
+    <h1 id="description">Quem tá sentindo igual? Vamos encontrar!</h1>
     <div class="game-board" id="gameBoard"></div>
     <div id="shadowWinGame">
       <div class="win-game">

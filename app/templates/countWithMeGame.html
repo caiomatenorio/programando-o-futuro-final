@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="pt">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>EducaKids</title>
+    <link rel="stylesheet" href="/static/css/countWithMeGame.css" />
+    <link
+      rel="shortcut icon"
+      href="/static/images/logo/logo-transparent.ico"
+      type="image/x-icon"
+    />
+  </head>
+  <body>
+    <header>
+      <h1>Conte Comigo</h1>
+      <a href="/inicio">Voltar</a>
+    </header>
+
+    <h1 id="title">
+      1, 2, 3... vamos contar e levar a bolinha até o quadrado!
+    </h1>
+    <div class="container"></div>
+
+    <div id="messageContainer" style="display: none">
+      <div id="gameWin">
+        <h1>Você ganhou!</h1>
+        <p>Parabéns! Você completou o jogo!</p>
+        <div id="containerBtns">
+          <button id="playAgain">Jogar novamente</button>
+          <button onclick="window.location.href='/inicio'">Voltar</button>
+        </div>
+      </div>
+    </div>
+
+    <script src="{{ url_for('static', filename='js/countWithMeGame.js') }}"></script>
+  </body>
+</html>

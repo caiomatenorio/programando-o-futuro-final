@@ -58,7 +58,10 @@ document.addEventListener("DOMContentLoaded", () => {
         container.appendChild(novaFase);
       }
     } else {
-      container.innerHTML = "<div class='mensagem-final'><h2>Parabéns! Você completou todos os números! 🎉</h2></div>";
+        document.getElementById("messageContainer").style.display = "flex";
+        document.getElementById("playAgain").addEventListener("click", () => {
+          location.reload();
+        });
     }
   }
 

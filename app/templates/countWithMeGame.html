@@ -9,6 +9,18 @@
 <body>
   <h1>Vamos contar!</h1>
   <div class="container"></div>
+
+  <div id="messageContainer" style="display: none;">
+    <div id="gameWin">
+      <h1>Você ganhou!</h1>
+      <p>Parabéns! Você completou o jogo!</p>
+      <div id="containerBtns">
+        <button id="playAgain">Jogar novamente</button>
+        <button onclick="window.location.href='/inicio'">Voltar</button>
+      </div>
+    </div>
+  </div>
+
   <script src="{{ url_for('static', filename='js/countWithMeGame.js') }}"></script>
 </body>
 </html>

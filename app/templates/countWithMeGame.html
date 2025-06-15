@@ -1,37 +1,14 @@
 <!DOCTYPE html>
-<html lang="pt-br">
+<html lang="pt">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <link rel="stylesheet" href="/staic/css/countWithMeGame.css" />
-  <title>Contar com bolinhas</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Jogo de contar</title>
+  <link rel="stylesheet" href="/static/css/countWithMeGame.css">
 </head>
 <body>
   <h1>Vamos contar!</h1>
-
-  <div class="container">
-
-    <div class="linha">
-      <div class="caixa-numero">1</div>
-      <div class="igual">=</div>
-      <div class="caixa-resposta" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
-      <div class="circulos">
-        <div class="circulo" id="bolinha1" draggable="true" ondragstart="drag(event)"></div>
-      </div>
-    </div>
-
-    <div class="linha">
-      <div class="caixa-numero">2</div>
-      <div class="igual">=</div>
-      <div class="caixa-resposta" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
-      <div class="circulos">
-        <div class="circulo" id="bolinha2a" draggable="true" ondragstart="drag(event)"></div>
-        <div class="circulo" id="bolinha2b" draggable="true" ondragstart="drag(event)"></div>
-      </div>
-    </div>
-
-    <button class="botao">Próximo</button>
-  </div>
+  <div class="container"></div>
   <script src="{{ url_for('static', filename='js/countWithMeGame.js') }}"></script>
 </body>
 </html>

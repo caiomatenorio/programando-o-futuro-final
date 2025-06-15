@@ -3,47 +3,68 @@ body {
   background-color: #FFF1E6;
   margin: 0;
   padding: 0;
+  text-align: center;
 }
 
 h1 {
   color: #C886FF;
   font-size: 64px;
-  margin: 0;
-  padding: 30px 0;
-  text-align: center;
-  background-color: #FFF1E6;
+  margin-top: 30px;
 }
 
 .container {
-  max-width: 1000px;
-  margin: 80px auto 0 auto;
-  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 400px;
+  margin-top: 40px;
 }
 
 .linha {
   display: flex;
   align-items: center;
-  justify-content: flex-start;
-  margin-left: 240px;
-  margin-bottom: 60px;
-  gap: 40px;
+  gap: 30px;
 }
 
-.caixa-numero,
-.caixa-resposta {
-  background-color: #b2e0f7;
-  width: 160px;
-  height: 140px;
+.caixa-numero, .caixa-resposta {
+  background-color: #B8E0FF;
+  width: 150px;
+  height: 150px;
   display: flex;
-  align-items: center;
   justify-content: center;
+  align-items: center;
+  font-size: 50px;
   font-weight: bold;
-  font-size: 60px;
-  border-radius: 8px;
+  border-radius: 10px;
+}
 
-  /* Novo para organizar as bolinhas */
-  gap: 20px;
-  flex-wrap: wrap;
+.caixa-resposta {
+  display: grid;
+  place-items: center;
+  gap: 10px;
+}
+
+.grid1 {
+  grid-template-columns: 1fr;
+}
+
+.grid2 {
+  grid-template-columns: 1fr 1fr;
+}
+
+.grid3 {
+  grid-template-columns: repeat(2, 1fr);
+  grid-template-rows: repeat(2, 1fr);
+}
+
+.grid4 {
+  grid-template-columns: repeat(2, 1fr);
+  grid-template-rows: repeat(2, 1fr);
+}
+
+.grid5 {
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: repeat(2, 1fr);
 }
 
 .igual {
@@ -60,36 +81,18 @@ h1 {
 
 .circulos {
   display: flex;
-  gap: 30px;
-  margin-left: 40px;
+  gap: 20px;
 }
 
 .circulo {
-  width: 60px;
-  height: 60px;
+  width: 40px;
+  height: 40px;
   background-color: red;
   border-radius: 50%;
   cursor: grab;
 }
 
-.circulo:active {
-  cursor: grabbing;
-}
-
-.botao {
-  background-color: #C886FF;
-  color: white;
-  border: none;
-  padding: 15px 40px;
-  border-radius: 40px;
-  font-size: 22px;
-  cursor: pointer;
-  margin-top: 60px;
-  display: block;
-  margin-left: auto;
-  margin-right: auto;
-}
-
-.botao:hover {
-  background-color: #C886FF;
+.mensagem-final{
+  font-size: 45px;
+  color: #C886FF;
 }

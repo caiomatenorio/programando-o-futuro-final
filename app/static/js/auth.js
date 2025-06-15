@@ -1,8 +1,8 @@
 function formatMultipleValidityErrorMessages(errors) {
   return errors
     .map((e, i) => {
-      if (i !== 0) e = e.charAt(0).toLowerCase() + e.slice(1);
-      if (i !== errors.length - 1) e = e.replace(/\.$/, ",");
+      e = i !== 0 ? e.charAt(0).toLowerCase() + e.slice(1) : e;
+      e = i !== errors.length - 1 ? e.replace(/\.$/, ",") : e;
       return e;
     })
     .join(" ");

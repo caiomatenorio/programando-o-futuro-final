@@ -17,7 +17,10 @@
       data-register="{{ url_for('views.register') }}"
     ></app-header>
     <main>
-      <img src="../static/images/index-kid.png" alt="Criança brincando" />
+      <img
+        src="{{ url_for('static', 'images/index/kid.png') }}"
+        alt="Criança brincando"
+      />
       <div id="text-content">
         <h1>
           Cada criança é um universo de possibilidades <br />

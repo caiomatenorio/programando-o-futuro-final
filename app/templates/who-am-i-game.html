@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="/static/css/whoAmI.css" />
+    <link
+      rel="shortcut icon"
+      href="/static/images/logo/logo-transparent.ico"
+      type="image/x-icon"
+    />
+    <title>Quem sou eu?</title>
+  </head>
+  <body>
+    <!-- Inside the platform we assume data-index as home page -->
+    <app-header data-home="{{ url_for('views.home')}}" data-back></app-header>
+    <h1 id="description">Quem é que faz essa sombra?</h1>
+    <div id="game-board">
+      <div id="imgShadow"></div>
+      <div id="imgOptionsContainer">
+        <div id="imgOptions"></div>
+      </div>
+    </div>
+    <div id="messagesContainer">
+      <div class="message" id="correct">
+        <h1>Parabéns! Você acertou!!!</h1>
+        <p>Continue jogando!</p>
+      </div>
+      <div class="message" id="incorrect">
+        <h1>Ops! Não é essa imagem!</h1>
+        <p>Tente novamente!</p>
+      </div>
+      <div class="message" id="gameWin">
+        <h1>Você ganhou!</h1>
+        <p>Parabéns! Você completou o jogo!</p>
+        <div id="containerBtns">
+          <button id="playAgain" onclick="resetGame()">Jogar novamente</button>
+          <button onclick="window.location.href='/inicio'">Voltar</button>
+        </div>
+      </div>
+    </div>
+    <script src="{{ url_for('static', filename='js/whoAmI.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/app-header.js') }}"></script>
+  </body>
+</html>

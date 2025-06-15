@@ -5,14 +5,16 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="/static/css/memoryGame.css" />
+    <link
+      rel="shortcut icon"
+      href="/static/images/logo/logo-transparent.ico"
+      type="image/x-icon"
+    />
     <title>Educakids</title>
   </head>
   <body>
-    <header>
-      <h1>Jogo das Emoções</h1>
-      <a href="/inicio">Voltar</a>
-    </header>
-    <h1 id="description">Encontre as emoções iguais!</h1>
+    <app-header data-home="{{ url_for('views.home')}}" data-back></app-header>
+    <h1 id="description">Quem tá sentindo igual? Vamos encontrar!</h1>
     <div class="game-board" id="gameBoard"></div>
     <div id="shadowWinGame">
       <div class="win-game">
@@ -26,5 +28,6 @@
       </div>
     </div>
     <script src="{{ url_for('static', filename='js/memoryGame.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/app-header.js') }}"></script>
   </body>
 </html>

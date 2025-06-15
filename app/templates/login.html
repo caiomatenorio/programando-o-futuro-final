@@ -3,6 +3,11 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="shortcut icon"
+      href="/static/images/logo/logo-transparent.ico"
+      type="image/x-icon"
+    />
     <title>Entrar - EducaKids</title>
     <link
       rel="stylesheet"
@@ -10,14 +15,10 @@
     />
   </head>
   <body>
-    <header>
-      <div id="logo"><a href="{{ url_for('views.index') }}"></a></div>
-      <nav>
-        <ul>
-          <li><a href="{{ url_for('views.register') }}">Criar conta</a></li>
-        </ul>
-      </nav>
-    </header>
+    <app-header
+      data-home="{{ url_for('views.index') }}"
+      data-register="{{ url_for('views.register') }}"
+    ></app-header>
     <main>
       <form id="login-form">
         <h1>Vamos jogar!</h1>
@@ -41,5 +42,6 @@
       </form>
     </main>
     <script src="{{ url_for('static', filename='js/auth.js' ) }}"></script>
+    <script src="{{ url_for('static', filename='js/app-header.js') }}"></script>
   </body>
 </html>

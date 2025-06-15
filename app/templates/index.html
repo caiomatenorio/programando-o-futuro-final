@@ -2,18 +2,25 @@
 <html lang="pt-br">
   <head>
     <meta charset="UTF-8" />
+    <link
+      rel="shortcut icon"
+      href="/static/images/logo/logo-transparent.ico"
+      type="image/x-icon"
+    />
     <title>EducaKids</title>
     <link rel="stylesheet" href="/static/css/index.css" />
   </head>
-
   <body>
-    <header>
-      <div class="marca">EducaKids</div>
-      <a href="#" class="sobre">Sobre nós</a>
-    </header>
-
+    <app-header
+      data-home="{{ url_for('views.index') }}"
+      data-login="{{ url_for('views.login') }}"
+      data-register="{{ url_for('views.register') }}"
+    ></app-header>
     <main>
-      <img src="../static/images/index-kid.png" alt="Criança brincando" />
+      <img
+        src="{{ url_for('static', filename='images/index/kid.png') }}"
+        alt="Criança brincando"
+      />
       <div id="text-content">
         <h1>
           Cada criança é um universo de possibilidades <br />
@@ -25,5 +32,6 @@
         </div>
       </div>
     </main>
+    <script src="{{ url_for('static', filename='js/app-header.js') }}"></script>
   </body>
 </html>

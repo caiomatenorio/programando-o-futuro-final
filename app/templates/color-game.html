@@ -4,16 +4,16 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="/static/css/colorGame.css" />
+    <link
+      rel="shortcut icon"
+      href="/static/images/logo/logo-transparent.ico"
+      type="image/x-icon"
+    />
     <title>EducaKids</title>
   </head>
   <body>
-    <header>
-      <h1>Jogo das Cores</h1>
-      <a href="/inicio">Voltar</a>
-    </header>
-
-    <h1 id="title">Vamos brincar com as cores!</h1>
-
+    <app-header data-home="{{ url_for('views.home') }}" data-back></app-header>
+    <h1 id="title">Vamos levar a bolinha pra casa dela!</h1>
     <div class="container">
       <div class="row" id="draggables">
         <div class="circle filled red" draggable="true" data-color="red"></div>
@@ -38,7 +38,6 @@
           data-color="yellow"
         ></div>
       </div>
-
       <div class="row" id="targets">
         <div class="target green" data-color="green"></div>
         <div class="target yellow" data-color="yellow"></div>
@@ -47,7 +46,6 @@
         <div class="target red" data-color="red"></div>
       </div>
     </div>
-
     <div id="messageContainer">
       <div id="gameWin">
         <h1>Você ganhou!</h1>
@@ -59,5 +57,6 @@
       </div>
     </div>
     <script src="{{ url_for('static', filename='js/colorGame.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/app-header.js') }}"></script>
   </body>
 </html>

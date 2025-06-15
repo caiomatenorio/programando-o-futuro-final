@@ -1,28 +1,62 @@
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Criar Conta - EducaKids</title>
-  <link rel="stylesheet" href="{{ url_for('static', filename='css/auth.css' ) }}">
-</head>
-
-<body>
-  <main>
-    <form action="" id="register-form">
-      <h1>Nova Conta</h1>
-      <div id="inputs">
-        <input type="text" name="name" id="name" placeholder="Nome">
-        <input type="email" name="email" id="email" placeholder="E-mail">
-        <input type="password" name="password" id="password" placeholder="Senha">
-        <input type="password" name="confirm-password" id="confirm-password" placeholder="Confirmar Senha">
-        <a href="{{url_for('views.login')}}">Já tem uma conta?</a>
-      </div>
-      <button type="submit">Criar</button>
-    </form>
-  </main>
-  <script src="{{ url_for('static', filename='js/register.js') }}"></script>
-</body>
-
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Criar conta - EducaKids</title>
+    <link
+      rel="stylesheet"
+      href="{{ url_for('static', filename='css/auth.css' ) }}"
+    />
+  </head>
+  <body>
+    <header>
+      <div id="logo"><a href="{{ url_for('views.index') }}"></a></div>
+      <nav>
+        <ul>
+          <li><a href="{{ url_for('views.login') }}">Entrar</a></li>
+        </ul>
+      </nav>
+    </header>
+    <main>
+      <form action="" id="register-form">
+        <h1>Nova Conta</h1>
+        <div id="inputs">
+          <input
+            type="text"
+            name="name"
+            id="name"
+            placeholder="Nome"
+            maxlength="64"
+            required
+          />
+          <input
+            type="email"
+            name="email"
+            id="email"
+            placeholder="E-mail"
+            required
+          />
+          <input
+            type="password"
+            name="password"
+            id="password"
+            placeholder="Senha"
+            minlength="8"
+            maxlength="128"
+            required
+          />
+          <input
+            type="password"
+            name="confirm-password"
+            id="confirm-password"
+            placeholder="Confirmar Senha"
+            required
+          />
+        </div>
+        <button type="submit">Criar conta</button>
+      </form>
+    </main>
+    <script src="{{ url_for('static', filename='js/auth.js') }}"></script>
+  </body>
 </html>

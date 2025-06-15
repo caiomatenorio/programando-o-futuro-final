@@ -5,11 +5,36 @@
   font-family: Arial, Helvetica, sans-serif;
 }
 
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 10vh;
+  padding: 0 5vw;
+  background-color: #c886ff;
+}
+
+nav ul {
+  list-style: none;
+  display: flex;
+  gap: 2vw;
+}
+
+nav ul li {
+  font-size: 1rem;
+}
+
+nav ul li a {
+  text-decoration: none;
+  color: #fff1e6;
+  transition: color 200ms ease;
+}
+
 main {
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 100vh;
+  height: 90vh;
   background-color: #fff1e6;
 }
 
@@ -17,12 +42,12 @@ form {
   display: flex;
   flex-direction: column;
   align-items: center;
+  gap: 5vh;
 }
 
 h1 {
   font-size: 2.5rem;
   color: #c886ff;
-  margin-bottom: 4vh;
 }
 
 #inputs {
@@ -50,21 +75,36 @@ input::placeholder {
 }
 
 button {
-  padding: 1.5vh 2vw;
   border: none;
   border-radius: 25px;
   background-color: #c886ff;
   color: white;
-  font-size: 1.25rem;
   cursor: pointer;
+  transition: background-color 200ms ease;
 }
 
-a {
+main button {
+  padding: 1.5vh 2vw;
+  font-size: 1.25rem;
+}
+
+button:hover {
+  background-color: #b075e6;
+}
+
+#inputs p {
   color: #c886ff;
-  text-decoration: none;
   font-size: 0.9rem;
-  font-weight: 500;
-  text-decoration: underline;
   text-align: end;
   margin-right: 1vw;
+}
+
+#inputs a {
+  text-decoration: underline;
+  transition: color 200ms ease;
+  color: inherit;
+}
+
+#inputs a:hover {
+  color: #b075e6;
 }

@@ -26,7 +26,7 @@ def api_before_request():
 def views_before_request():
     PUBLIC_ENDPOINTS = ["views.index", "views.login", "views.register"]
 
-    if request.endpoint in PUBLIC_ENDPOINTS:
+    if request.endpoint in PUBLIC_ENDPOINTS[1:]:
         try:
             session_service.validate_session()
             return redirect(url_for("views.home"))

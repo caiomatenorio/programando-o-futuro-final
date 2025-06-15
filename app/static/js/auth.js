@@ -13,7 +13,7 @@ function formatMultipleAlertErrorMessages(errors) {
 }
 
 function clearCustomValidity(input) {
-  clear = () => {
+  let clear = () => {
     input.setCustomValidity("");
     input.reportValidity();
   };

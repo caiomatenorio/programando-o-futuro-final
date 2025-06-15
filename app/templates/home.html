@@ -12,9 +12,8 @@
     <title>EducaKids</title>
   </head>
   <body>
-    <header>
-      <h1>EducaKids</h1>
-    </header>
+    <!-- Inside the platform we assume data-index as home page -->
+    <app-header data-index="{{ url_for('views.home')}}"></app-header>
     <main>
       <div id="search">
         <img src="/static/images/home/icon-search.png" alt="" />
@@ -43,6 +42,7 @@
       </div>
       <div id="imgResult"></div>
     </main>
-    <script src="/static/js/home.js"></script>
+    <script src="{{ url_for('static', filename='js/app-header.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/home.js' }}"></script>
   </body>
 </html>

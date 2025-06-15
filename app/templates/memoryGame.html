@@ -13,10 +13,8 @@
     <title>Educakids</title>
   </head>
   <body>
-    <header>
-      <h1>Memória das Emoções</h1>
-      <a href="/inicio">Voltar</a>
-    </header>
+    <!-- Inside the platform we assume data-index as home page -->
+    <app-header data-index="{{ url_for('views.home')}}"></app-header>
     <h1 id="description">Quem tá sentindo igual? Vamos encontrar!</h1>
     <div class="game-board" id="gameBoard"></div>
     <div id="shadowWinGame">
@@ -31,5 +29,6 @@
       </div>
     </div>
     <script src="{{ url_for('static', filename='js/memoryGame.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/app-header.js') }}"></script>
   </body>
 </html>

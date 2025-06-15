@@ -15,14 +15,11 @@
     />
   </head>
   <body>
-    <header>
-      <div id="logo"><a href="{{ url_for('views.index') }}"></a></div>
-      <nav>
-        <ul>
-          <li><a href="{{ url_for('views.login') }}">Entrar</a></li>
-        </ul>
-      </nav>
-    </header>
+    <app-header
+      data-index="{{ url_for('views.index') }}"
+      data-login="{{ url_for('views.login') }}"
+      data-register="{{ url_for('views.register') }}"
+    ></app-header>
     <main>
       <form action="" id="register-form">
         <h1>Nova Conta</h1>
@@ -63,5 +60,6 @@
       </form>
     </main>
     <script src="{{ url_for('static', filename='js/auth.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/app-header.js') }}"></script>
   </body>
 </html>

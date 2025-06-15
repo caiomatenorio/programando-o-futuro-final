@@ -7,7 +7,29 @@ body {
   padding: 40px;
 }
 
-h1 {
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: fixed;
+  top: 0;
+  height: 15%;
+  width: 100%;
+  background-color: #c886ff;
+  color: #fff1e6;
+  padding: 1rem 2rem;
+  box-sizing: border-box;
+}
+
+header a {
+  color: #fff1e6;
+  text-decoration: none;
+  font-size: 24px;
+  font-weight: bold;
+}
+
+#title {
+  margin-top: 15vh;
   color: #c38df7;
   margin-bottom: 40px;
   font-size: 48px;
@@ -111,7 +133,7 @@ h1 {
   padding: 20px;
   z-index: 1001;
 }
-#gameWin h2 {
+#gameWin h1 {
   color: #c38df7;
   font-size: 36px;
   margin-bottom: 20px;

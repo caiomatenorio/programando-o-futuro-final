@@ -1,43 +1,42 @@
 <!DOCTYPE html>
 <html lang="pt-br">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="/static/css/whoAmI.css" />
+    <title>Quem sou eu?</title>
+  </head>
 
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <link rel="stylesheet" href="/static/css/whoAmI.css" />
-  <title>Quem sou eu?</title>
-</head>
-
-<body>
-  <header>
-    <h1>Quem sou eu?</h1>
-    <a href="/home">Voltar</a>
-  </header>
-  <div id="game-board">
-    <div id="imgShadow"></div>
-    <div id="imgOptionsContainer">
-      <div id="imgOptions"></div>
-    </div>
-  </div>
-  <div id="messagesContainer">
-    <div class="message" id="correct">
-      <h1>Parabéns! Você acertou!!!</h1>
-      <p>Continue jogando!</p>
-    </div>
-    <div class="message" id="incorrect">
-      <h1>Ops! Não é essa imagem!</h1>
-      <p>Tente novamente!</p>
-    </div>
-    <div class="message" id="gameWin">
-      <h1>Você ganhou!</h1>
-      <p>Parabéns! Você completou o jogo!</p>
-      <div id="containerBtns">
-        <button id="playAgain" onclick="resetGame()">Jogar novamente</button>
-        <button onclick="window.location.href='/home'">Voltar</button>
+  <body>
+    <header>
+      <h1>Quem sou eu?</h1>
+      <a href="/inicio">Voltar</a>
+    </header>
+    <h1 id="description">Encontre a quem pertence a sombra</h1>
+    <div id="game-board">
+      <div id="imgShadow"></div>
+      <div id="imgOptionsContainer">
+        <div id="imgOptions"></div>
       </div>
     </div>
-  </div>
-  <script src="{{ url_for('static', filename='js/whoAmI.js') }}"></script>
-</body>
-
+    <div id="messagesContainer">
+      <div class="message" id="correct">
+        <h1>Parabéns! Você acertou!!!</h1>
+        <p>Continue jogando!</p>
+      </div>
+      <div class="message" id="incorrect">
+        <h1>Ops! Não é essa imagem!</h1>
+        <p>Tente novamente!</p>
+      </div>
+      <div class="message" id="gameWin">
+        <h1>Você ganhou!</h1>
+        <p>Parabéns! Você completou o jogo!</p>
+        <div id="containerBtns">
+          <button id="playAgain" onclick="resetGame()">Jogar novamente</button>
+          <button onclick="window.location.href='/inicio'">Voltar</button>
+        </div>
+      </div>
+    </div>
+    <script src="{{ url_for('static', filename='js/whoAmI.js') }}"></script>
+  </body>
 </html>

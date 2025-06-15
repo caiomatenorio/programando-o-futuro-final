@@ -3,9 +3,41 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Home</title>
+    <link rel="stylesheet" href="/static/css/home.css" />
+    <title>EducaKids</title>
   </head>
   <body>
-    <h1>Tela inicial dos jogos</h1>
+    <header>
+      <h1>EducaKids</h1>
+    </header>
+    <main>
+      <div id="search">
+        <img src="/static/images/home/icon-search.png" alt="" />
+        <input
+          type="text"
+          id="search-input"
+          name="query"
+          placeholder="Buscar..."
+          autocomplete="off"
+          required
+        />
+      </div>
+      <div id="imgContainer">
+        <a href="jogos/quem-sou-eu"
+          ><img src="/static/images/home/quem-sou-eu.png" alt=""
+        /></a>
+        <a href="jogos/jogo-da-memoria"
+          ><img src="/static/images/home/memoria-das-emocoes.png" alt=""
+        /></a>
+        <a href="jogos/jogo-das-cores"
+          ><img src="/static/images/home/jogo-das-cores.png" alt=""
+        /></a>
+        <a href="jogos/vamos-contar"
+          ><img src="/static/images/home/vamos-contar.png" alt=""
+        /></a>
+      </div>
+      <div id="imgResult"></div>
+    </main>
+    <script src="/static/js/home.js"></script>
   </body>
 </html>

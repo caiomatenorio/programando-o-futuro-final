@@ -1,0 +1,149 @@
+body {
+  background-color: #fbece2;
+  font-family: sans-serif;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 40px;
+}
+
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: fixed;
+  top: 0;
+  height: 15%;
+  width: 100%;
+  background-color: #c886ff;
+  color: #fff1e6;
+  padding: 1rem 2rem;
+  box-sizing: border-box;
+}
+
+header a {
+  color: #fff1e6;
+  text-decoration: none;
+  font-size: 24px;
+  font-weight: bold;
+}
+
+#title {
+  margin-top: 15vh;
+  color: #c38df7;
+  margin-bottom: 40px;
+  font-size: 48px;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  gap: 80px;
+  margin-top: 80px;
+}
+
+.row {
+  display: flex;
+  gap: 80px;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.circle {
+  width: 7vw;
+  height: 7vw;
+  border-radius: 50%;
+  cursor: grab;
+}
+
+.filled.red {
+  background-color: red;
+}
+.filled.blue {
+  background-color: blue;
+}
+.filled.green {
+  background-color: lime;
+}
+.filled.purple {
+  background-color: purple;
+}
+.filled.yellow {
+  background-color: yellow;
+}
+
+.target {
+  width: 7.2vw;
+  height: 7.2vw;
+  border-radius: 50%;
+  background-color: white;
+  border: 8px solid;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.target.red {
+  border-color: red;
+}
+.target.blue {
+  border-color: blue;
+}
+.target.green {
+  border-color: lime;
+}
+.target.purple {
+  border-color: purple;
+}
+.target.yellow {
+  border-color: yellow;
+}
+
+.placed {
+  width: 7.2vw;
+  height: 7.2vw;
+  cursor: default;
+  border-radius: 50%;
+}
+
+#messageContainer {
+  display: none;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 1000;
+  position: fixed;
+  top: 0;
+  left: 0;
+}
+
+#gameWin {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background-color: #fbece2;
+
+  width: 30%;
+  height: 30%;
+  border-radius: 10px;
+  padding: 20px;
+  z-index: 1001;
+}
+#gameWin h1 {
+  color: #c38df7;
+  font-size: 36px;
+  margin-bottom: 20px;
+}
+#gameWin button {
+  padding: 10px 20px;
+  font-size: 18px;
+  background-color: #c38df7;
+  color: #fbece2;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}

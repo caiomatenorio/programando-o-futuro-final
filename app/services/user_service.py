@@ -95,8 +95,11 @@ def get_current_user():
 
 
 def fetch_and_lock_current_user():
-    user_id = get_current_user()["id"]
-    return get_user_by_id_or_raise(user_id, True)
+    try:
+        user_id = get_current_user()["id"]
+        return get_user_by_id_or_raise(user_id, True)
+    except UserNotFoundException:
+        raise UnauthorizedException()
 
 
 def update_current_user_name(name):

@@ -3,23 +3,31 @@ class AppHeader extends HTMLElement {
     super();
     this.attachShadow({ mode: "open" });
     this.data = {
-      index: this.getAttribute("data-index"),
+      home: this.getAttribute("data-home"),
+      back: this.hasAttribute("data-back"),
       login: this.getAttribute("data-login"),
       register: this.getAttribute("data-register"),
     };
 
-    if (!this.data.index) {
+    if (!this.data.home) {
       throw new Error("Header component 'data-home' attribute is mandatory.");
     }
   }
 
   async connectedCallback() {
     this.shadowRoot.innerHTML = `
-      <link rel="stylesheet" href="/static/css/header.css">
+      <link rel="stylesheet" href="/static/css/app-header.css"/ >
       <header class="header">
-        <div><a href="${this.data.index}"></a></div>
+        <a href="${
+          this.data.home
+        }"><img src="/static/images/logo/logo-transparent.png" /></a>
         <nav>
           <ul>
+              ${
+                this.data.back
+                  ? `<li><a href="${this.data.home}">Voltar</a></li>`
+                  : ""
+              }
               ${
                 this.data.login
                   ? `<li><a href="${this.data.login}">Entrar</a></li>`

@@ -12,16 +12,11 @@
     />
   </head>
   <body>
-    <header>
-      <h1>Conte Comigo</h1>
-      <a href="/inicio">Voltar</a>
-    </header>
-
+    <app-header data-home="{{ url_for('views.home') }}" data-back></app-header>
     <h1 id="title">
       1, 2, 3... vamos contar e levar a bolinha até o quadrado!
     </h1>
     <div class="container"></div>
-
     <div id="messageContainer" style="display: none">
       <div id="gameWin">
         <h1>Você ganhou!</h1>
@@ -32,7 +27,7 @@
         </div>
       </div>
     </div>
-
+    <script src="{{ url_for('static', filename='js/app-header.js') }}"></script>
     <script src="{{ url_for('static', filename='js/countWithMeGame.js') }}"></script>
   </body>
 </html>

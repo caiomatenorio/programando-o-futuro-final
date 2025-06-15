@@ -5,12 +5,15 @@ let flippedCards = [];
 let matchedCards = 0;
 let isChecking = false;
 
+const playAgainButton = document.getElementById("playAgain");
+playAgainButton.addEventListener("click", playAgain);
+
 const images = [
-  "/static/images/memoryGame/happy.png",
-  "/static/images/memoryGame/sad.png",
-  "/static/images/memoryGame/angry.png",
-  "/static/images/memoryGame/fear.png",
-  "/static/images/memoryGame/disgust.png",
+  "/static/images/memoryGame/feliz.png",
+  "/static/images/memoryGame/triste.png",
+  "/static/images/memoryGame/medo.png",
+  "/static/images/memoryGame/raiva.png",
+  "/static/images/memoryGame/sono.png",
 ];
 
 const containerWinGame = document.getElementById("shadowWinGame");

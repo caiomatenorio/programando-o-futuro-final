@@ -46,8 +46,8 @@ header a {
 }
 
 .circle {
-  width: 7vw;
-  height: 7vw;
+  width: 10vw;
+  height: 10vw;
   border-radius: 50%;
   cursor: grab;
 }
@@ -69,8 +69,8 @@ header a {
 }
 
 .target {
-  width: 7.2vw;
-  height: 7.2vw;
+  width: 10.2vw;
+  height: 10.2vw;
   border-radius: 50%;
   background-color: white;
   border: 8px solid;
@@ -96,8 +96,8 @@ header a {
 }
 
 .placed {
-  width: 7.2vw;
-  height: 7.2vw;
+  width: 10.2vw;
+  height: 10.2vw;
   cursor: default;
   border-radius: 50%;
 }

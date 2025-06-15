@@ -27,11 +27,43 @@ main {
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  height: 60%;
+}
+
+#search {
+  display: flex;
+  align-items: center;
+  width: 80%;
+  height: 7vh;
+  border-radius: 25px;
+  background-color: #ece9e7;
+  max-width: 600px;
+  margin: 2rem auto;
+  display: flex;
+  justify-content: center;
+}
+
+#search input {
+  width: 80%;
+  border: none;
+  border-radius: 25px;
+  padding: 0.5rem;
+  font-size: 1rem;
+  background-color: #c886ff00;
+}
+
+#search input:focus {
+  outline: none;
+  background-color: #c886ff20;
+}
+#search img {
+  width: 2rem;
+  height: 2rem;
 }
 
 #imgContainer {
   width: 80vw;
-  height: 40vh;
+  height: 60vh;
   display: grid;
   grid-template-columns: 1fr 1fr;
   grid-template-rows: 1fr 1fr;
@@ -48,4 +80,5 @@ main {
 
 main img {
   width: 80%;
+  border-radius: 25px;
 }

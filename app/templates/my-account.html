@@ -14,7 +14,7 @@
     {% if editar == "senha" %}
     <main id="password-edit">
       <h1>Editar senha</h1>
-      <form>
+      <form id="password-form">
         <input
           type="password"
           name="current-password"
@@ -39,7 +39,7 @@
           required
         />
         <div id="password-buttons">
-          <button type="submit" id="update-password-btn">Editar</button>
+          <button type="submit">Editar</button>
           <a href="{{ url_for('views.my_account') }}">Cancelar</a>
         </div>
       </form>
@@ -51,13 +51,20 @@
         <div class="field" id="name-field">
           <label for="">Nome</label>
           {% if editar == "nome" %}
-          <form>
-            <input type="text" name="name" id="name" value="{{ name }}" />
+          <form id="name-form">
+            <input
+              type="text"
+              name="name"
+              id="name"
+              value="{{ name }}"
+              maxlength="64"
+              required
+            />
             <div id="field-buttons">
               <a class="cancel-btn" href="{{ url_for('views.my_account') }}">
                 Cancelar
               </a>
-              <button type="submit" id="update-name-btn">Editar</button>
+              <button type="submit">Editar</button>
             </div>
           </form>
           {% else %}
@@ -75,13 +82,19 @@
         <div class="field" id="email-field">
           <label for="">E-mail</label>
           {% if editar == "email" %}
-          <form>
-            <input type="email" name="email" id="email" value="{{ email }}" />
+          <form id="email-form">
+            <input
+              type="email"
+              name="email"
+              id="email"
+              value="{{ email }}"
+              required
+            />
             <div id="field-buttons">
               <a class="cancel-btn" href="{{ url_for('views.my_account') }}">
                 Cancelar
               </a>
-              <button type="submit" id="update-email-btn">Editar</button>
+              <button type="submit">Editar</button>
             </div>
           </form>
           {% else %}

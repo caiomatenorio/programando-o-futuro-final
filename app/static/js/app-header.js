@@ -7,6 +7,7 @@ class AppHeader extends HTMLElement {
       back: this.hasAttribute("data-back"),
       login: this.getAttribute("data-login"),
       register: this.getAttribute("data-register"),
+      myAccount: this.getAttribute("data-my-account"),
     };
 
     if (!this.data.home) {
@@ -23,21 +24,26 @@ class AppHeader extends HTMLElement {
         }"><img src="/static/images/logo/logo-transparent.png" /></a>
         <nav>
           <ul>
-              ${
-                this.data.back
-                  ? `<li><a href="${this.data.home}">Voltar</a></li>`
-                  : ""
-              }
-              ${
-                this.data.login
-                  ? `<li><a href="${this.data.login}">Entrar</a></li>`
-                  : ""
-              }
-              ${
-                this.data.register
-                  ? `<li><a href="${this.data.register}">Criar conta</a></li>`
-                  : ""
-              }
+            ${
+              this.data.back
+                ? `<li><a href="${this.data.home}">Voltar</a></li>`
+                : ""
+            }
+            ${
+              this.data.login
+                ? `<li><a href="${this.data.login}">Entrar</a></li>`
+                : ""
+            }
+            ${
+              this.data.register
+                ? `<li><a href="${this.data.register}">Criar conta</a></li>`
+                : ""
+            }
+            ${
+              this.data.myAccount
+                ? `<li><a href="${this.data.myAccount}">Minha conta</a></li>`
+                : ""
+            }
           </ul>
         </nav>
       </header>

@@ -12,7 +12,10 @@
     <title>EducaKids</title>
   </head>
   <body>
-    <app-header data-home="{{ url_for('views.home')}}"></app-header>
+    <app-header
+      data-home="{{ url_for('views.home')}}"
+      data-my-account="{{ url_for('views.my_account') }}"
+    ></app-header>
     <main>
       <div id="search">
         <img src="/static/images/home/icon-search.png" alt="" />

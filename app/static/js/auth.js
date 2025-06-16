@@ -2,7 +2,7 @@ import {
   addCustomValidity,
   displayBadRequestErrors,
   setSubmitting,
-} from "./request-utils";
+} from "./request-utils.js";
 
 document
   .getElementById("register-form")

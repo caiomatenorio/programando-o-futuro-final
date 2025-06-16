@@ -12,23 +12,6 @@ body #description {
   color: #c886ff;
 }
 
-header {
-  background-color: #cc84f4;
-  color: #fff1e6;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  height: 10vh;
-  padding: 0 2em;
-}
-
-header a {
-  text-decoration: none;
-  color: #fff1e6;
-  font-weight: bold;
-  font-size: 1.2rem;
-}
-
 .game-board {
   display: grid;
   grid-template-columns: repeat(5, 100px);
@@ -106,7 +89,7 @@ header a {
 }
 .containerButtons button {
   padding: 10px 20px;
-  font-size: 1.2rem;
+  font-size: 1rem;
   border: none;
   border-radius: 20px;
   cursor: pointer;
@@ -114,6 +97,11 @@ header a {
   color: #fff1e6;
   width: 80%;
   height: 75%;
-  font-size: 1.3rem;
   font-weight: bold;
+  text-decoration: none;
+}
+
+.containerButtons a {
+  color: inherit;
+  text-decoration: none;
 }

@@ -126,12 +126,32 @@
         <form id="logout-form">
           <button type="submit">Sair</button>
         </form>
-        <form id="delete-account">
-          <button type="submit">Excluir conta</button>
-        </form>
+        <a href="{{ url_for('views.my_account', excluir='') }}">
+          <button>Excluir conta</button>
+        </a>
       </div>
     </main>
-    {% endif %}
+    {% if delete %}
+    <div id="popup-bg">
+      <div id="delete-popup">
+        <h2>Excluir conta</h2>
+        <p>Confirme sua senha para excluir sua conta.</p>
+        <form id="delete-form">
+          <input
+            type="password"
+            name="password"
+            id="password"
+            placeholder="Senha"
+            required
+          />
+          <div id="popup-buttons">
+            <button type="submit">Excluir</button>
+            <a href="{{ url_for('views.my_account') }}">Cancelar</a>
+          </div>
+        </form>
+      </div>
+    </div>
+    {% endif %} {% endif %}
     <script
       type="module"
       src="{{ url_for('static', filename='js/my-account.js') }}"

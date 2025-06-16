@@ -153,3 +153,38 @@ document
       unsetSubmitting();
     }
   });
+
+document
+  .getElementById("logout-form")
+  ?.addEventListener("submit", async (e) => {
+    e.preventDefault();
+    const unsetSubmitting = setSubmitting(e, "Saindo...");
+
+    try {
+      const response = await fetch("/api/auth/logout", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+      });
+
+      if (response.ok) {
+        window.location.replace("/");
+        return;
+      }
+
+      const body = await response.json();
+
+      if (response.status === 500) {
+        alert(body.message);
+        return;
+      }
+
+      throw new Error("Unexpected response status: " + response.status);
+    } catch (error) {
+      console.error("Erro ao processar a resposta:", error);
+      alert(
+        "Ocorreu um erro inesperado. Por favor, tente novamente mais tarde."
+      );
+    } finally {
+      unsetSubmitting();
+    }
+  });

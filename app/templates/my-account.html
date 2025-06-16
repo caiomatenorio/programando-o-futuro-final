@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Minha conta - EducaKids</title>
+    <link
+      rel="stylesheet"
+      href="{{ url_for('static', filename='css/my-account.css') }}"
+    />
+  </head>
+  <body>
+    <app-header data-home="{{ url_for('views.home') }}" data-back></app-header>
+    {% if editar == "senha" %}
+    <main id="password-edit">
+      <h1>Editar senha</h1>
+      <form>
+        <input
+          type="password"
+          name="current-password"
+          id="current-password"
+          placeholder="Senha atual"
+          required
+        />
+        <input
+          type="password"
+          name="new-password"
+          id="new-password"
+          placeholder="Nova senha"
+          minlength="8"
+          maxlength="128"
+          required
+        />
+        <input
+          type="password"
+          name="confirm-password"
+          id="confirm_password"
+          placeholder="Confirmar nova senha"
+          required
+        />
+        <div id="password-buttons">
+          <button type="submit" id="update-password-btn">Editar</button>
+          <a href="{{ url_for('views.my_account') }}">Cancelar</a>
+        </div>
+      </form>
+    </main>
+    {% else %}
+    <main id="my-account">
+      <h1>Minha conta</h1>
+      <div id="fields">
+        <div class="field" id="name-field">
+          <label for="">Nome</label>
+          {% if editar == "nome" %}
+          <form>
+            <input type="text" name="name" id="name" value="{{ name }}" />
+            <div id="field-buttons">
+              <a class="cancel-btn" href="{{ url_for('views.my_account') }}">
+                Cancelar
+              </a>
+              <button type="submit" id="update-name-btn">Editar</button>
+            </div>
+          </form>
+          {% else %}
+          <div class="input">
+            <p>{{ name }}</p>
+            <a href="{{ url_for('views.my_account', editar='nome') }}">
+              <img
+                src="{{ url_for('static', filename='images/my-account/edit.png') }}"
+                alt="Editar"
+              />
+            </a>
+          </div>
+          {% endif %}
+        </div>
+        <div class="field" id="email-field">
+          <label for="">E-mail</label>
+          {% if editar == "email" %}
+          <form>
+            <input type="email" name="email" id="email" value="{{ email }}" />
+            <div id="field-buttons">
+              <a class="cancel-btn" href="{{ url_for('views.my_account') }}">
+                Cancelar
+              </a>
+              <button type="submit" id="update-email-btn">Editar</button>
+            </div>
+          </form>
+          {% else %}
+          <div class="input">
+            <p>{{ email }}</p>
+            <a href="{{ url_for('views.my_account', editar='email') }}">
+              <img
+                src="{{ url_for('static', filename='images/my-account/edit.png') }}"
+                alt="Editar"
+              />
+            </a>
+          </div>
+          {% endif %}
+        </div>
+        <div class="field" id="password-field">
+          <label for="">Senha</label>
+          <div class="input">
+            <p>&#9679;&#9679;&#9679;&#9679;&#9679;&#9679;&#9679;&#9679;</p>
+            <a href="{{ url_for('views.my_account', editar='senha') }}">
+              <img
+                src="{{ url_for('static', filename='images/my-account/edit.png') }}"
+                alt="Editar"
+              />
+            </a>
+          </div>
+        </div>
+      </div>
+      <div id="buttons">
+        <form id="logout-form">
+          <button type="submit">Sair</button>
+        </form>
+        <form id="delete-account">
+          <button type="submit">Excluir conta</button>
+        </form>
+      </div>
+    </main>
+    {% endif %}
+    <script src="{{ url_for('static', filename='js/my-account.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/app-header.js') }}"></script>
+  </body>
+</html>

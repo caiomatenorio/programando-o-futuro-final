@@ -61,6 +61,9 @@ h1 {
   background-color: #fff;
   color: #333;
   font-size: 1rem;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 .input a {

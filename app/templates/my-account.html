@@ -18,14 +18,14 @@
         <input
           type="password"
           name="current-password"
-          id="current-password"
+          id="current_password"
           placeholder="Senha atual"
           required
         />
         <input
           type="password"
           name="new-password"
-          id="new-password"
+          id="new_password"
           placeholder="Nova senha"
           minlength="8"
           maxlength="128"
@@ -34,7 +34,7 @@
         <input
           type="password"
           name="confirm-password"
-          id="confirm_password"
+          id="confirm_new_password"
           placeholder="Confirmar nova senha"
           required
         />
@@ -49,7 +49,7 @@
       <h1>Minha conta</h1>
       <div id="fields">
         <div class="field" id="name-field">
-          <label for="">Nome</label>
+          <label>Nome</label>
           {% if editar == "nome" %}
           <form id="name-form">
             <input
@@ -80,7 +80,7 @@
           {% endif %}
         </div>
         <div class="field" id="email-field">
-          <label for="">E-mail</label>
+          <label>E-mail</label>
           {% if editar == "email" %}
           <form id="email-form">
             <input
@@ -110,7 +110,7 @@
           {% endif %}
         </div>
         <div class="field" id="password-field">
-          <label for="">Senha</label>
+          <label>Senha</label>
           <div class="input">
             <p>&#9679;&#9679;&#9679;&#9679;&#9679;&#9679;&#9679;&#9679;</p>
             <a href="{{ url_for('views.my_account', editar='senha') }}">
@@ -132,7 +132,10 @@
       </div>
     </main>
     {% endif %}
-    <script src="{{ url_for('static', filename='js/my-account.js') }}"></script>
+    <script
+      type="module"
+      src="{{ url_for('static', filename='js/my-account.js') }}"
+    ></script>
     <script src="{{ url_for('static', filename='js/app-header.js') }}"></script>
   </body>
 </html>

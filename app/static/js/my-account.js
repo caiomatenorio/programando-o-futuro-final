@@ -4,7 +4,7 @@ import {
   setSubmitting,
 } from "./request-utils.js";
 
-document.getElementById("name-form").addEventListener("submit", async (e) => {
+document.getElementById("name-form")?.addEventListener("submit", async (e) => {
   if (!e.target.checkValidity()) {
     return;
   }
@@ -44,7 +44,7 @@ document.getElementById("name-form").addEventListener("submit", async (e) => {
   }
 });
 
-document.getElementById("email-form").addEventListener("submit", async (e) => {
+document.getElementById("email-form")?.addEventListener("submit", async (e) => {
   if (!e.target.checkValidity()) {
     return;
   }
@@ -91,7 +91,7 @@ document.getElementById("email-form").addEventListener("submit", async (e) => {
 
 document
   .getElementById("password-form")
-  .addEventListener("submit", async (e) => {
+  ?.addEventListener("submit", async (e) => {
     if (!e.target.checkValidity()) {
       return;
     }
@@ -100,10 +100,10 @@ document
     const unsetSubmitting = setSubmitting(e, "Atualizando...");
 
     try {
-      const currentPassword = document.getElementById("current-password").value;
-      const newPassword = document.getElementById("new-password").value;
+      const currentPassword = document.getElementById("current_password").value;
+      const newPassword = document.getElementById("new_password").value;
       const confirmNewPassword = document.getElementById(
-        "confirm-new-password"
+        "confirm_new_password"
       ).value;
 
       if (newPassword !== confirmNewPassword) {
@@ -134,7 +134,7 @@ document
       }
 
       if (response.status === 401) {
-        addCustomValidity("current-password", body.message);
+        addCustomValidity("current_password", body.message);
         return;
       }
 

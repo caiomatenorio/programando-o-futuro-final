@@ -11,12 +11,21 @@ from .blueprints import api, views
 
 @api.before_request
 def api_before_request():
-    PUBLIC_ENDPOINTS = ["api.login", "api.register", "api.auth_status"]
-
-    if request.endpoint in PUBLIC_ENDPOINTS:
+    if request.endpoint in ["api.login", "api.register", "api.auth_status"]:
         return
 
     session_service.validate_session()
+
+
+@api.after_request
+def api_after_request(response):
+    if request.endpoint in [
+        "api.update_user_name",
+        "api.update_user_email",
+        "api.update_user_password",
+    ]:
+        response.delete_cookie("access_token", path="/")
+    return response
 
 
 # Views middlewares for the application

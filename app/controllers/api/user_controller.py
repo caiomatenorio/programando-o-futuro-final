@@ -12,7 +12,7 @@ from .schemas.user_schemas import (
 )
 
 
-@api.get("/users/me")
+@api.get("/my-account")
 def get_current_user():
     user = user_service.get_current_user()
     user.pop("id")
@@ -23,7 +23,7 @@ def get_current_user():
     ).to_response()
 
 
-@api.put("/users/me/name")
+@api.put("/my-account/name")
 def update_user_name():
     body = UpdateUserNameSchema().load(request.json)  # type: ignore
     user_service.update_current_user_name(body["name"])  # type: ignore
@@ -33,7 +33,7 @@ def update_user_name():
     ).to_response()
 
 
-@api.put("/users/me/email")
+@api.put("/my-account/email")
 def update_user_email():
     body = UpdateUserEmailSchema().load(request.json)  # type: ignore
     user_service.update_current_user_email(body["email"])  # type: ignore
@@ -43,7 +43,7 @@ def update_user_email():
     ).to_response()
 
 
-@api.put("/users/me/password")
+@api.put("/my-account/password")
 def update_user_password():
     body = UpdateUserPasswordSchema().load(request.json)  # type: ignore
     user_service.update_current_user_password(
@@ -56,7 +56,7 @@ def update_user_password():
     ).to_response()
 
 
-@api.delete("/users/me")
+@api.delete("/my-account")
 def delete_user_account():
     body = DeleteUserAccountSchema().load(request.json)  # type: ignore
     user_service.delete_current_user(body["password"])  # type: ignore

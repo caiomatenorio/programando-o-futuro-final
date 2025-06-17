@@ -233,7 +233,7 @@ def decode_jwt(token):
         payload["data"]["session_id"] = UUID(payload["data"]["session_id"])
         payload["data"]["user_id"] = UUID(payload["data"]["user_id"])
         return payload
-    except (jwt.ExpiredSignatureError, jwt.InvalidTokenError) as e:
+    except (jwt.ExpiredSignatureError, jwt.InvalidTokenError):
         raise UnauthorizedException()
 
 

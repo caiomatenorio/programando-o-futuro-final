@@ -212,6 +212,7 @@ def update_current_user_name(name):
 
     :param name: The new name for the user.
     :return: None
+    :raises UnauthorizedException: If the current user cannot be determined.
     """
 
     with db.session.begin():
@@ -228,6 +229,7 @@ def update_current_user_email(email):
 
     :param email: The new email for the user.
     :return: None
+    :raises UnauthorizedException: If the current user cannot be determined.
     :raises EmailAlreadyInUseException: If a user with the given email already exists.
     """
 
@@ -250,8 +252,9 @@ def update_current_user_password(current_password, new_password):
     :param current_password: The current password of the user.
     :param new_password: The new password for the user.
     :return: None
+    :raises UnauthorizedException: If the current user cannot be determined.
     :raises InvalidCredentialsException: If the current password does not match the stored password
-        hash.
+                                         hash.
     """
 
     with db.session.begin():
@@ -272,8 +275,9 @@ def delete_current_user(password):
 
     :param password: The password of the user to confirm deletion.
     :return: None
+    :raises UnauthorizedException: If the current user cannot be determined.
     :raises InvalidCredentialsException: If the provided password does not match the stored
-        password hash.
+                                         password hash.
     """
 
     with db.session.begin():

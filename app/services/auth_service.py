@@ -64,7 +64,6 @@ def is_authenticated():
     it returns True; otherwise, it returns False.
 
     :return: True if the user is authenticated, False otherwise.
-    :raises UnauthorizedException: If the session is not valid or does not exist.
     """
 
     try:

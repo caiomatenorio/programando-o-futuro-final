@@ -32,6 +32,7 @@ class ResponseDto:
         Converts the DTO into a Flask response object with JSON body and session cookies.
 
         :param clear_session: If True, clears the session cookies; otherwise, adds session cookies.
+        :return: A Flask response object with the JSON body and session cookies.
         """
 
         # Filter out None values from the DTO's attributes to avoid sending them in the response

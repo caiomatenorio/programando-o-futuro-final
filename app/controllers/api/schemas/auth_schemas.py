@@ -2,6 +2,10 @@ from marshmallow import Schema, fields, validate
 
 
 class RegisterSchema(Schema):
+    """
+    Schema for user registration. It validates the user's name, email, and password fields.
+    """
+
     name = fields.String(
         required=True,
         validate=[
@@ -58,6 +62,10 @@ class RegisterSchema(Schema):
 
 
 class LoginSchema(Schema):
+    """
+    Schema for user login. It validates the user's email and password fields.
+    """
+
     email = fields.Email(
         required=True,
         error_messages={

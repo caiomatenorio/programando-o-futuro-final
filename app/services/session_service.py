@@ -1,9 +1,9 @@
 """
 # Session Service Module
 
-This module provides functions to manage user sessions, including creating, retrieving,
-refreshing, and deleting sessions. It also handles JWT creation and decoding, session
-validation, and cookie management for session tokens.
+This module provides functions to manage user sessions, including creating, retrieving, refreshing,
+and deleting sessions. It also handles JWT creation and decoding, session validation, and cookie
+management for session tokens.
 """
 
 from datetime import datetime, timedelta, timezone
@@ -59,9 +59,9 @@ def get_session_by_id_or_raise(session_id, inside_transaction=False):
 
     :param session_id: The ID of the session to retrieve.
     :param inside_transaction: Whether the function is called within an existing transaction.
-    :raises SessionNotFoundException: If the session with the given ID does not exist or
-        is expired.
     :return: The session object if found and valid.
+    :raises SessionNotFoundException: If the session with the given ID does not exist or is
+        expired.
     """
 
     session = get_session_by_id(session_id, inside_transaction)
@@ -97,14 +97,14 @@ def get_session_by_refresh_token(refresh_token, inside_transaction=False):
 
 def get_session_by_refresh_token_or_raise(refresh_token, inside_transaction=False):
     """
-    Retrieve a session by its refresh token and raise an exception if not found. This function
-    is used to ensure that the session exists and is valid.
+    Retrieve a session by its refresh token and raise an exception if not found. This function is
+    used to ensure that the session exists and is valid.
 
     :param refresh_token: The refresh token associated with the session.
     :param inside_transaction: Whether the function is called within an existing transaction.
-    :raises SessionNotFoundException: If the session with the given refresh token does not exist
-        or is expired.
     :return: The session object if found and valid.
+    :raises SessionNotFoundException: If the session with the given refresh token does not exist or
+        is expired.
     """
 
     session = get_session_by_refresh_token(refresh_token, inside_transaction)
@@ -117,12 +117,12 @@ def get_session_by_refresh_token_or_raise(refresh_token, inside_transaction=Fals
 
 def get_current_session_id():
     """
-    Retrieve the current session ID from the global context. This function checks if
-    the session ID is set in the global context and returns it. If the session ID is
-    not set, it raises an UnauthorizedException.
+    Retrieve the current session ID from the global context. This function checks if the session ID
+    is set in the global context and returns it. If the session ID is not set, it raises an
+    UnauthorizedException.
 
-    :raises UnauthorizedException: If the session ID is not set in the global context.
     :return: The current session ID.
+    :raises UnauthorizedException: If the session ID is not set in the global context.
     """
 
     session_id = g.get("session_id")
@@ -134,14 +134,14 @@ def get_current_session_id():
 
 def refresh_session(refresh_token):
     """
-    Refresh the session by generating a new refresh token and updating the session's
-    expiration time. This function retrieves the session using the provided refresh token,
-    updates its refresh token and expiration time, and returns a new JWT and refresh token.
+    Refresh the session by generating a new refresh token and updating the session's expiration
+    time. This function retrieves the session using the provided refresh token, updates its refresh
+    token and expiration time, and returns a new JWT and refresh token.
 
     :param refresh_token: The refresh token used to retrieve the session.
-    :raises SessionNotFoundException: If the session with the given refresh token does not exist
-        or is expired.
     :return: A tuple containing the new JWT and refresh token.
+    :raises SessionNotFoundException: If the session with the given refresh token does not exist or
+        is expired.
     """
 
     with db.session.begin():
@@ -182,8 +182,8 @@ def delete_session_by_id(session_id):
     needed or has expired.
 
     :param session_id: The ID of the session to be deleted.
-    :raises SessionNotFoundException: If the session with the given ID does not exist.
     :return: None
+    :raises SessionNotFoundException: If the session with the given ID does not exist.
     """
 
     with db.session.begin():
@@ -226,8 +226,8 @@ def decode_jwt(token):
     expired or invalid, an UnauthorizedException is raised.
 
     :param token: The JWT to decode.
-    :raises UnauthorizedException: If the token is expired or invalid.
     :return: The decoded payload containing session and user information.
+    :raises UnauthorizedException: If the token is expired or invalid.
     """
 
     try:
@@ -241,8 +241,8 @@ def decode_jwt(token):
 
 def set_new_tokens(access_token, refresh_token):
     """
-    Set new access and refresh tokens in the global context. This function is used to
-    store the tokens for the current session, allowing them to be accessed later.
+    Set new access and refresh tokens in the global context. This function is used to store the
+    tokens for the current session, allowing them to be accessed later.
 
     :param access_token: The new access token to be set.
     :param refresh_token: The new refresh token to be set.
@@ -255,8 +255,8 @@ def set_new_tokens(access_token, refresh_token):
 
 def get_new_tokens():
     """
-    Retrieve the new access and refresh tokens from the global context. This function is
-    used to access the tokens that were set during the session creation or refresh process.
+    Retrieve the new access and refresh tokens from the global context. This function is used to
+    access the tokens that were set during the session creation or refresh process.
 
     :return: A tuple containing the access token and refresh token, or None if not set.
     """
@@ -266,10 +266,10 @@ def get_new_tokens():
 
 def add_session_cookies(response):
     """
-    Add session cookies to the response. This function sets the access and refresh tokens
-    as cookies in the response, with appropriate attributes such as max age, httponly,
-    secure, samesite, and path. The cookies are set based on the tokens retrieved
-    from the global context and only if both tokens are available to ensure a valid session.
+    Add session cookies to the response. This function sets the access and refresh tokens as
+    cookies in the response, with appropriate attributes such as max age, httponly, secure,
+    samesite, and path. The cookies are set based on the tokens retrieved from the global context
+    and only if both tokens are available to ensure a valid session.
 
     :param response: The response object to which the cookies will be added.
     :return: The response object with the session cookies added.
@@ -296,9 +296,8 @@ def add_session_cookies(response):
 
 def clear_session_cookies(response):
     """
-    Clear session cookies from the response. This function removes the access and
-    refresh tokens from the response cookies, effectively logging out the user by
-    invalidating the session.
+    Clear session cookies from the response. This function removes the access and refresh tokens
+    from the response cookies, effectively logging out the user by invalidating the session.
 
     :param response: The response object from which the cookies will be removed.
     :return: The response object with the session cookies cleared.
@@ -319,8 +318,8 @@ def set_current_session(access_token=None, refresh_token=None):
 
     :param access_token: The access token to decode and set the current session.
     :param refresh_token: The refresh token to retrieve the session if access token is not provided
-    :raises UnauthorizedException: If neither access token nor refresh token is provided or valid.
     :return: None
+    :raises UnauthorizedException: If neither access token nor refresh token is provided or valid.
     """
 
     if access_token:
@@ -341,8 +340,8 @@ def set_current_session(access_token=None, refresh_token=None):
 
 def extract_session_from_request():
     """
-    Extract the access and refresh tokens from the request cookies. This function retrieves
-    the session tokens from the request cookies, which are used to validate the user's session.
+    Extract the access and refresh tokens from the request cookies. This function retrieves the
+    session tokens from the request cookies, which are used to validate the user's session.
 
     :return: A tuple containing the access token and refresh token, or None if not found.
     """
@@ -355,13 +354,13 @@ def extract_session_from_request():
 
 def validate_session():
     """
-    Validate the current session by checking the access and refresh tokens.
-    If the access token is valid, it sets the current session. If the access token is
-    invalid but the refresh token is valid, it refreshes the session and sets the new
-    access token. If neither token is valid, it raises an UnauthorizedException.
+    Validate the current session by checking the access and refresh tokens. If the access token is
+    valid, it sets the current session. If the access token is invalid but the refresh token is
+    valid, it refreshes the session and sets the new access token. If neither token is valid, it
+    raises an UnauthorizedException.
 
-    :raises UnauthorizedException: If neither access token nor refresh token is valid.
     :return: None
+    :raises UnauthorizedException: If neither access token nor refresh token is valid.
     """
 
     access_token, refresh_token = extract_session_from_request()

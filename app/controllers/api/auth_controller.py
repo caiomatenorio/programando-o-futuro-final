@@ -17,7 +17,7 @@ from .schemas.auth_schemas import LoginSchema, RegisterSchema
 @api.post("/auth/register")
 def register():
     """
-    Endpoint to register a new user. It expects a JSON body with the user's name, email, and
+    POST endpoint to register a new user. It expects a JSON body with the user's name, email, and
     password.
 
     :return: A success response with a status code of 201 if the user is created successfully.
@@ -33,7 +33,7 @@ def register():
 @api.post("/auth/login")
 def login():
     """
-    Endpoint to log in a user. It expects a JSON body with the user's email and password.
+    POST endpoint to log in a user. It expects a JSON body with the user's email and password.
 
     :return: A success response with a status code of 200 if the login is successful.
     :raises ValidationError: If the request body does not conform to the expected schema.
@@ -48,7 +48,7 @@ def login():
 @api.post("/auth/logout")
 def logout():
     """
-    Endpoint to log out the current user. It clears the session and returns a success response.
+    POST endpoint to log out the current user. It clears the session and returns a success response.
 
     :return: A success response with a status code of 200 if the logout is successful.
     :raises UnauthorizedException: If the user is not authenticated or the session does not exist.
@@ -64,7 +64,7 @@ def logout():
 @api.get("/auth/status")
 def get_auth_status():
     """
-    Endpoint to check the authentication status of the current user. It returns whether the user is
+    GET endpoint to check the authentication status of the current user. It returns whether the user is
     authenticated or not.
 
     :return: A success response with a status code of 200 and a boolean indicating the

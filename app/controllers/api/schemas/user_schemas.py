@@ -2,6 +2,11 @@ from marshmallow import Schema, fields, validate
 
 
 class UpdateUserNameSchema(Schema):
+    """
+    Schema for updating the user's name. It validates that the name is a non-empty string with a
+    maximum length of 64 characters and does not consist solely of whitespace.
+    """
+
     name = fields.String(
         required=True,
         validate=[
@@ -16,6 +21,10 @@ class UpdateUserNameSchema(Schema):
 
 
 class UpdateUserEmailSchema(Schema):
+    """
+    Schema for updating the user's email. It validates that the email is a valid email format.
+    """
+
     email = fields.Email(
         required=True,
         error_messages={
@@ -26,6 +35,12 @@ class UpdateUserEmailSchema(Schema):
 
 
 class UpdateUserPasswordSchema(Schema):
+    """
+    Schema for updating the user's password. It validates that the current password is provided and
+    that the new password meets specific criteria, including length, character types, and allowed
+    characters.
+    """
+
     current_password = fields.String(
         required=True,
         error_messages={"required": "Senha é obrigatória."},
@@ -61,6 +76,11 @@ class UpdateUserPasswordSchema(Schema):
 
 
 class DeleteUserAccountSchema(Schema):
+    """
+    Schema for deleting the user's account. It validates that the user provides their password for
+    confirmation before account deletion.
+    """
+
     password = fields.String(
         required=True,
         error_messages={"required": "Senha é obrigatória."},

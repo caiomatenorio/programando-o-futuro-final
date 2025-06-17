@@ -64,8 +64,7 @@ def logout():
 @api.get("/auth/status")
 def get_auth_status():
     """
-    GET endpoint to check the authentication status of the current user. It returns whether the user is
-    authenticated or not.
+    GET endpoint to check the authentication status of the current user.
 
     :return: A success response with a status code of 200 and a boolean indicating the
              authentication status.

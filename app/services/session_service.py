@@ -59,7 +59,7 @@ def get_session_by_id_or_raise(session_id, inside_transaction=False):
     :param inside_transaction: Whether the function is called within an existing transaction.
     :return: The session object if found and valid.
     :raises SessionNotFoundException: If the session with the given ID does not exist or is
-        expired.
+                                      expired.
     """
 
     session = get_session_by_id(session_id, inside_transaction)
@@ -102,7 +102,7 @@ def get_session_by_refresh_token_or_raise(refresh_token, inside_transaction=Fals
     :param inside_transaction: Whether the function is called within an existing transaction.
     :return: The session object if found and valid.
     :raises SessionNotFoundException: If the session with the given refresh token does not exist or
-        is expired.
+                                      is expired.
     """
 
     session = get_session_by_refresh_token(refresh_token, inside_transaction)
@@ -139,7 +139,7 @@ def refresh_session(refresh_token):
     :param refresh_token: The refresh token used to retrieve the session.
     :return: A tuple containing the new JWT and refresh token.
     :raises SessionNotFoundException: If the session with the given refresh token does not exist or
-        is expired.
+                                      is expired.
     """
 
     with db.session.begin():

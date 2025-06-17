@@ -1,6 +1,4 @@
 """
-# Session Service Module
-
 This module provides functions to manage user sessions, including creating, retrieving, refreshing,
 and deleting sessions. It also handles JWT creation and decoding, session validation, and cookie
 management for session tokens.

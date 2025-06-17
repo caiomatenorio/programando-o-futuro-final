@@ -1,6 +1,4 @@
 """
-# User Service Module
-
 This module provides services related to user management, including creating users, validating
 credentials, and managing user data.
 """

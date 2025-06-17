@@ -1,6 +1,4 @@
 """
-# Auth Service Module
-
 This module provides authentication services, including user registration, login, logout, and
 session management. It interacts with the user service and session service to handle user
 authentication and session creation.
